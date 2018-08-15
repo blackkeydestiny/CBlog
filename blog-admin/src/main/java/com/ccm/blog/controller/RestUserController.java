@@ -19,6 +19,7 @@
  */
 package com.ccm.blog.controller;
 
+import com.ccm.blog.util.AesUtil;
 import com.github.pagehelper.PageInfo;
 import com.ccm.blog.business.entity.User;
 import com.ccm.blog.business.enums.ResponseStatus;
@@ -114,13 +115,25 @@ public class RestUserController {
     @RequiresPermissions("user:get")
     @PostMapping("/get/{id}")
     public ResponseVO get(@PathVariable Long id) {
-        return ResultUtil.success(null, this.userService.getByPrimaryKey(id));
+        try {
+            User u = this.userService.getByPrimaryKey(id);
+            // 获取user信息前 对密码进行解密，否则在编辑user保存时，出现对数据库中已经加密的密码又再次进行加密
+            String password = PasswordUtil.decrypt(u.getPassword(), u.getUsername().trim());
+            u.setPassword(password);
+            return ResultUtil.success(null, u);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultUtil.error("error");
+        }
     }
 
     @RequiresPermissions("user:edit")
     @PostMapping("/edit")
     public ResponseVO edit(User user) {
         try {
+            // 编辑保存user，对密码进行加密
+            String password = PasswordUtil.encrypt(user.getPassword(), user.getUsername().trim());
+            user.setPassword(password);
             userService.updateSelective(user);
         } catch (Exception e) {
             e.printStackTrace();

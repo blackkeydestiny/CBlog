@@ -22,7 +22,8 @@
                 </div>
                 <h5 class="legend-title">关于博客</h5>
                 <div class="info">
-                    本站为非商业化站点，无盈利性质，为博主个人博客。本站二次开发于 <a href="https://gitee.com/yadong.zhang/DBlog" title="" data-toggle="tooltip" data-placement="right" target="_blank" data-original-title="DBlog是一款简洁美观、自适应的Java博客系统..."><strong>DBlog</strong></a>。<br>
+                    <#--本站为非商业化站点，无盈利性质，为博主个人博客。本站二次开发于 <a href="https://gitee.com/yadong.zhang/DBlog" title="" data-toggle="tooltip" data-placement="right" target="_blank" data-original-title="DBlog是一款简洁美观、自适应的Java博客系统..."><strong>DBlog</strong></a>。<br>-->
+                        本站为非商业化站点，无盈利性质，为博主个人博客。<br>
                 </div>
                 <h5 class="legend-title">关于版权</h5>
                 <div class="info">

@@ -32,9 +32,12 @@ import org.junit.Test;
  */
 public class PasswordUtilTest {
 
+    private final int FLAG_SPECIAL_GAME = 1 << 3;
+    private int status = 0;
+
     @Test
     public void passwordTest() throws Exception {
-        encryptTest("123456", "comment-admin");
+        encryptTest("123456", "root");
     }
 
     public void encryptTest(String password, String salt) throws Exception {
@@ -44,4 +47,44 @@ public class PasswordUtilTest {
         System.out.println(decrypt);
     }
 
+    @Test
+    public void passwordTest1() throws Exception {
+        decryptTest("x9qCx3yP05yWfIE5wXbCsg==", "comment-admin");
+    }
+
+    public void decryptTest(String encrypt, String salt) throws Exception {
+        System.out.println(encrypt);
+        String decrypt = PasswordUtil.decrypt(encrypt, salt);
+        System.out.println(decrypt);
+    }
+
+    @Test
+    public void testJava() throws Exception {
+        System.out.println(FLAG_SPECIAL_GAME);
+        setFlag(FLAG_SPECIAL_GAME);
+        clearFlag(FLAG_SPECIAL_GAME);
+    }
+
+    /**
+     * 0与任何数进行|运算得到任何数
+     * @param flag
+     */
+    private void setFlag(int flag) {
+        status = status | flag;
+        System.out.println(status);
+    }
+
+    /**
+     * 取反后，进行&运算
+     * @param flag
+     */
+    private void clearFlag(int flag) {
+        System.out.println(~flag);
+        status = status & ~flag;
+        System.out.println(status);
+    }
+
+    private boolean hasFlag(int flags) {
+        return (status & flags) != 0;
+    }
 }
