@@ -118,8 +118,8 @@ public class RestUserController {
         try {
             User u = this.userService.getByPrimaryKey(id);
             // 获取user信息前 对密码进行解密，否则在编辑user保存时，出现对数据库中已经加密的密码又再次进行加密
-            String password = PasswordUtil.decrypt(u.getPassword(), u.getUsername().trim());
-            u.setPassword(password);
+//            String password = PasswordUtil.decrypt(u.getPassword(), u.getUsername().trim());
+//            u.setPassword(password);
             return ResultUtil.success(null, u);
         }catch (Exception e){
             e.printStackTrace();
@@ -132,8 +132,8 @@ public class RestUserController {
     public ResponseVO edit(User user) {
         try {
             // 编辑保存user，对密码进行加密
-            String password = PasswordUtil.encrypt(user.getPassword(), user.getUsername().trim());
-            user.setPassword(password);
+//            String password = PasswordUtil.encrypt(user.getPassword(), user.getUsername().trim());
+//            user.setPassword(password);
             userService.updateSelective(user);
         } catch (Exception e) {
             e.printStackTrace();

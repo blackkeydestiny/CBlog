@@ -68,12 +68,12 @@
                             <input type="text" class="form-control col-md-7 col-xs-12" name="username" id="username" required="required" placeholder="请输入用户名"/>
                         </div>
                     </div>
-                    <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码: <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="password" class="form-control col-md-7 col-xs-12" id="password" name="password" required="required" placeholder="请输入密码 6位以上"/>
-                        </div>
-                    </div>
+                    <#--<div class="item form-group">-->
+                        <#--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码: <span class="required">*</span></label>-->
+                        <#--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                            <#--<input type="password" class="form-control col-md-7 col-xs-12" id="password" name="password" required="required" placeholder="请输入密码 6位以上"/>-->
+                        <#--</div>-->
+                    <#--</div>-->
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nickname">昵称:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
