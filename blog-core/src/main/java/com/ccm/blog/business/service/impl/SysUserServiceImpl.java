@@ -19,8 +19,8 @@
  */
 package com.ccm.blog.business.service.impl;
 
-import com.ccm.blog.framework.exception.ZhydCommentException;
-import com.ccm.blog.framework.exception.ZhydException;
+import com.ccm.blog.framework.exception.CcmCommentException;
+import com.ccm.blog.framework.exception.CcmException;
 import com.ccm.blog.framework.holder.RequestHolder;
 import com.ccm.blog.persistence.beans.SysUser;
 import com.ccm.blog.persistence.mapper.SysUserMapper;
@@ -33,11 +33,6 @@ import com.ccm.blog.business.enums.UserPrivacyEnum;
 import com.ccm.blog.business.enums.UserStatusEnum;
 import com.ccm.blog.business.service.SysUserService;
 import com.ccm.blog.business.vo.UserConditionVO;
-import com.ccm.blog.framework.exception.ZhydCommentException;
-import com.ccm.blog.framework.exception.ZhydException;
-import com.ccm.blog.framework.holder.RequestHolder;
-import com.ccm.blog.persistence.beans.SysUser;
-import com.ccm.blog.persistence.mapper.SysUserMapper;
 import com.ccm.blog.util.IpUtil;
 import com.ccm.blog.util.PasswordUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,7 +113,7 @@ public class SysUserServiceImpl implements SysUserService {
             try {
                 user.setPassword(PasswordUtil.encrypt(user.getPassword(), user.getUsername()));
             } catch (Exception e) {
-                throw new ZhydCommentException("密码加密失败");
+                throw new CcmCommentException("密码加密失败");
             }
         }
         return sysUserMapper.updateByPrimaryKey(user.getSysUser()) > 0;
@@ -134,7 +129,7 @@ public class SysUserServiceImpl implements SysUserService {
                 user.setPassword(PasswordUtil.encrypt(user.getPassword(), user.getUsername()));
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new ZhydCommentException("密码加密失败");
+                throw new CcmCommentException("密码加密失败");
             }
         } else {
             user.setPassword(null);
@@ -277,15 +272,15 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public boolean updatePwd(UserPwd userPwd) throws Exception {
         if (!userPwd.getNewPassword().equals(userPwd.getNewPasswordRepeat())) {
-            throw new ZhydException("新密码不一致！");
+            throw new CcmException("新密码不一致！");
         }
         User user = this.getByPrimaryKey(userPwd.getId());
         if (null == user) {
-            throw new ZhydException("用户编号错误！请不要手动操作用户ID！");
+            throw new CcmException("用户编号错误！请不要手动操作用户ID！");
         }
 
         if(!user.getPassword().equals(PasswordUtil.encrypt(userPwd.getPassword(), user.getUsername()))) {
-            throw new ZhydException("原密码不正确！");
+            throw new CcmException("原密码不正确！");
         }
         user.setPassword(userPwd.getNewPassword());
 

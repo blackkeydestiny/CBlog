@@ -20,11 +20,10 @@
 package com.ccm.blog.business.service;
 
 
-import com.ccm.blog.framework.exception.ZhydLinkException;
+import com.ccm.blog.framework.exception.CcmLinkException;
 import com.github.pagehelper.PageInfo;
 import com.ccm.blog.business.entity.Link;
 import com.ccm.blog.business.vo.LinkConditionVO;
-import com.ccm.blog.framework.exception.ZhydLinkException;
 
 import java.util.List;
 import java.util.Map;
@@ -161,5 +160,5 @@ public interface SysLinkService {
      * @param link
      * @return
      */
-    boolean autoLink(Link link) throws ZhydLinkException;
+    boolean autoLink(Link link) throws CcmLinkException;
 }

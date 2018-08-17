@@ -21,10 +21,7 @@ package com.ccm.blog.business.util;
 
 import com.ccm.blog.business.entity.ImageFileInfo;
 import com.ccm.blog.business.enums.QiniuUploadType;
-import com.ccm.blog.framework.exception.ZhydFileException;
-import com.ccm.blog.business.entity.ImageFileInfo;
-import com.ccm.blog.business.enums.QiniuUploadType;
-import com.ccm.blog.framework.exception.ZhydFileException;
+import com.ccm.blog.framework.exception.CcmFileException;
 import com.ccm.blog.util.ImageUtil;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -47,19 +44,19 @@ public class ImageValidateUtil {
      * @param type
      *         文件类型
      */
-    public static void validate(MultipartFile file, QiniuUploadType type) throws ZhydFileException {
+    public static void validate(MultipartFile file, QiniuUploadType type) throws CcmFileException {
         ImageFileInfo imgInfo = ImageUtil.getInfo(file);
         if (null == imgInfo) {
-            throw new ZhydFileException("图片文件不可为空！");
+            throw new CcmFileException("图片文件不可为空！");
         }
         int[] width = type.getWidth();
         int[] height = type.getHeight();
         int[] size = type.getSize();
         if (isEmptyArr(width) || isEmptyArr(height) || isEmptyArr(size)) {
-            throw new ZhydFileException("图片校验规则配置不正确！");
+            throw new CcmFileException("图片校验规则配置不正确！");
         }
         if (checkValue(width, imgInfo.getWidth()) || checkValue(height, imgInfo.getHeight()) || checkValue(size, (int) imgInfo.getSize())) {
-            throw new ZhydFileException("图片尺寸不正确，请严格按照提示上传文件！");
+            throw new CcmFileException("图片尺寸不正确，请严格按照提示上传文件！");
         }
     }
 

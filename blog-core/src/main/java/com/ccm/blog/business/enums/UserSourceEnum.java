@@ -31,5 +31,5 @@ package com.ccm.blog.business.enums;
  * @since 1.0
  */
 public enum UserSourceEnum {
-    GITHUB, WEIBO, QQ, ZHYD
+    GITHUB, WEIBO, QQ, CCM
 }

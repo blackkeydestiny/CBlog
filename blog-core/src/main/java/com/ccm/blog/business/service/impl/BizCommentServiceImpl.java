@@ -21,13 +21,12 @@ package com.ccm.blog.business.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ccm.blog.business.annotation.RedisCache;
-import com.ccm.blog.framework.exception.ZhydCommentException;
+import com.ccm.blog.framework.exception.CcmCommentException;
 import com.ccm.blog.framework.holder.RequestHolder;
 import com.ccm.blog.persistence.beans.BizComment;
 import com.ccm.blog.persistence.mapper.BizCommentMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ccm.blog.business.annotation.RedisCache;
 import com.ccm.blog.business.dto.BizCommentDTO;
 import com.ccm.blog.business.entity.Comment;
 import com.ccm.blog.business.entity.Config;
@@ -38,10 +37,6 @@ import com.ccm.blog.business.service.BizCommentService;
 import com.ccm.blog.business.service.MailService;
 import com.ccm.blog.business.service.SysConfigService;
 import com.ccm.blog.business.vo.CommentConditionVO;
-import com.ccm.blog.framework.exception.ZhydCommentException;
-import com.ccm.blog.framework.holder.RequestHolder;
-import com.ccm.blog.persistence.beans.BizComment;
-import com.ccm.blog.persistence.mapper.BizCommentMapper;
 import com.ccm.blog.util.*;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.OperatingSystem;
@@ -147,7 +142,7 @@ public class BizCommentServiceImpl implements BizCommentService {
      */
     @Override
     @RedisCache(flush = true)
-    public void commentForAdmin(Comment comment) throws ZhydCommentException {
+    public void commentForAdmin(Comment comment) throws CcmCommentException {
         Config config = configService.get();
         User user = SessionUtil.getUser();
         comment.setQq(user.getQq());
@@ -170,13 +165,13 @@ public class BizCommentServiceImpl implements BizCommentService {
      */
     @Override
     @RedisCache(flush = true)
-    public Comment comment(Comment comment) throws ZhydCommentException {
+    public Comment comment(Comment comment) throws CcmCommentException {
         if (StringUtils.isEmpty(comment.getNickname())) {
-            throw new ZhydCommentException("必须输入昵称哦~~");
+            throw new CcmCommentException("必须输入昵称哦~~");
         }
         String content = comment.getContent();
         if (StringUtils.isEmpty(content)) {
-            throw new ZhydCommentException("不说话可不行，必须说点什么哦~~");
+            throw new CcmCommentException("不说话可不行，必须说点什么哦~~");
         }
         content = content.trim();
         if (content.endsWith("<p><br></p>")) {
@@ -321,7 +316,7 @@ public class BizCommentServiceImpl implements BizCommentService {
         String key = IpUtil.getRealIp(RequestHolder.getRequest()) + "_doSupport_" + id;
         ValueOperations<String, Object> operations = redisTemplate.opsForValue();
         if (redisTemplate.hasKey(key)) {
-            throw new ZhydCommentException("一个小时只能点一次赞哈~");
+            throw new CcmCommentException("一个小时只能点一次赞哈~");
         }
         bizCommentMapper.doSupport(id);
         operations.set(key, id, 1, TimeUnit.HOURS);
@@ -338,7 +333,7 @@ public class BizCommentServiceImpl implements BizCommentService {
         String key = IpUtil.getRealIp(RequestHolder.getRequest()) + "_doOppose_" + id;
         ValueOperations<String, Object> operations = redisTemplate.opsForValue();
         if (redisTemplate.hasKey(key)) {
-            throw new ZhydCommentException("一个小时只能踩一次哈~又没什么深仇大恨");
+            throw new CcmCommentException("一个小时只能踩一次哈~又没什么深仇大恨");
         }
         bizCommentMapper.doOppose(id);
         operations.set(key, id, 1, TimeUnit.HOURS);

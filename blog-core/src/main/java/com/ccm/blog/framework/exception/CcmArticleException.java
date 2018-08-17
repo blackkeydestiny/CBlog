@@ -30,13 +30,13 @@ package com.ccm.blog.framework.exception;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public class ZhydCommentException extends ZhydException {
+public class CcmArticleException extends CcmException {
     /**
      * Constructs a new runtime exception with {@code null} as its
      * detail message.  The cause is not initialized, and may subsequently be
      * initialized by a call to {@link #initCause}.
      */
-    public ZhydCommentException() {
+    public CcmArticleException() {
         super();
     }
 
@@ -49,7 +49,7 @@ public class ZhydCommentException extends ZhydException {
      *         the detail message. The detail message is saved for
      *         later retrieval by the {@link #getMessage()} method.
      */
-    public ZhydCommentException(String message) {
+    public CcmArticleException(String message) {
         super(message);
     }
 }

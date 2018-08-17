@@ -90,7 +90,9 @@ public class RestUserController {
             return ResultUtil.error("该用户名["+user.getUsername()+"]已存在！请更改用户名");
         }
         try {
-            user.setPassword(PasswordUtil.encrypt(user.getPassword(), user.getUsername()));
+            //user.setPassword(PasswordUtil.encrypt(user.getPassword(), user.getUsername()));
+            //默认密码为123456
+            user.setPassword(PasswordUtil.encrypt("123456", user.getUsername()));
             userService.insert(user);
             return ResultUtil.success("成功");
         } catch (Exception e) {

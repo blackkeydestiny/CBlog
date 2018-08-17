@@ -32,7 +32,7 @@ package com.ccm.blog.controller;
 import com.ccm.blog.business.annotation.BussinessLog;
 import com.ccm.blog.business.entity.Article;
 import com.ccm.blog.business.service.BizArticleService;
-import com.ccm.blog.core.websocket.server.ZydWebsocketServer;
+import com.ccm.blog.core.websocket.server.CcmWebsocketServer;
 import com.ccm.blog.util.ResultUtil;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -59,7 +59,7 @@ public class RenderController {
     @Autowired
     private BizArticleService articleService;
     @Autowired
-    private ZydWebsocketServer websocketServer;
+    private CcmWebsocketServer websocketServer;
 
     @RequiresAuthentication
     @BussinessLog("进入首页")

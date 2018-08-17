@@ -153,7 +153,7 @@ CREATE TABLE `biz_comment` (
 -- ----------------------------
 -- Records of biz_comment
 -- ----------------------------
-INSERT INTO `biz_comment` VALUES ('1', '1', null, '0', '843977358', '七彩狼', 'https://q1.qlogo.cn/g?b=qq&nk=843977358&s=40', '843977358@qq.com', 'https://www.zhyd.me', 'VERIFYING', '0:0:0:0:0:0:0:1', null, null, '未知', 'Windows 7', null, 'Chrome 65.0.3325.146', null, '<p>测试评论</p>', null, '0', '0', '2018-05-22 11:50:40', '2018-05-22 11:50:40');
+INSERT INTO `biz_comment` VALUES ('1', '1', null, '0', '1973518337', 'Cinderella', 'https://q1.qlogo.cn/g?b=qq&nk=1973518337&s=40', '1973518337@qq.com', 'https://www.chuming.online', 'VERIFYING', '0:0:0:0:0:0:0:1', null, null, '未知', 'Windows 7', null, 'Chrome 65.0.3325.146', null, '<p>测试评论</p>', null, '0', '0', '2018-05-22 11:50:40', '2018-05-22 11:50:40');
 
 -- ----------------------------
 -- Table structure for biz_tags
@@ -241,7 +241,7 @@ CREATE TABLE `sys_config` (
 -- ----------------------------
 -- Records of sys_config
 -- ----------------------------
-INSERT INTO `sys_config` VALUES ('1', 'DBlog是一款简洁美观、自适应的Java博客系统。使用springboot开发，前端使用Bootstrap。支持移动端自适应，配有完备的前台和后台管理功能。', 'DBlog,开源博客', 'zhyd.me', 'http://localhost:8085', 'http://localhost:8443', '博客', 'DBlog是一款简洁美观、自适应的Java博客系统', 'http://localhost:8443/img/favicon.ico', 'http://localhost:8443', '张亚东', 'yadong.zhang0415#gmail.com', '', '843977358', 'http://weibo.com/211230415', 'https://github.com/zhangyd-c', '0', '2018-12-19 23:07:52', '1', null, null, null, null, null, null, null, null, '2018-01-19 23:07:52', '2018-06-12 12:03:28');
+INSERT INTO `sys_config` VALUES ('1', 'DBlog是一款简洁美观、自适应的Java博客系统。使用springboot开发，前端使用Bootstrap。支持移动端自适应，配有完备的前台和后台管理功能。', 'DBlog,开源博客', 'zhyd.me', 'http://localhost:8085', 'http://localhost:8443', '博客', 'DBlog是一款简洁美观、自适应的Java博客系统', 'http://localhost:8443/img/favicon.ico', 'http://localhost:8443', '陈楚明', '17688759175@163.com', '', '1973518337', 'https://weibo.com/2805182893', 'https://github.com/blackkeydestiny', '0', '2018-12-19 23:07:52', '1', null, null, null, null, null, null, null, null, '2018-08-01 23:07:52', '2018-08-01 12:03:28');
 
 -- ----------------------------
 -- Table structure for sys_link
@@ -568,7 +568,7 @@ CREATE TABLE `sys_user` (
   `company` varchar(100) DEFAULT NULL COMMENT '公司',
   `blog` varchar(255) DEFAULT NULL COMMENT '个人博客地址',
   `location` varchar(255) DEFAULT NULL COMMENT '地址',
-  `source` enum('GITHUB','WEIBO','QQ','ZHYD') DEFAULT 'ZHYD' COMMENT '用户来源(默认ZHYD=本网站注册用户)',
+  `source` enum('GITHUB','WEIBO','QQ','CCM') DEFAULT 'CCM' COMMENT '用户来源(默认CCM=本网站注册用户)',
   `privacy` tinyint(2) DEFAULT NULL COMMENT '隐私（1：公开，0：不公开）',
   `notification` tinyint(2) unsigned DEFAULT NULL COMMENT '通知：(1：通知显示消息详情，2：通知不显示详情)',
   `score` int(10) unsigned DEFAULT '0' COMMENT '金币值',
@@ -587,9 +587,9 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'root', 'CGUx1FN++xS+4wNDFeN6DA==', '超级管理员', '15151551516', '843977358@qq.com', '843977358', null, null, 'https://static.zhyd.me/static/img/favicon.ico', 'ROOT', null, null, null, 'ZHYD', null, null, '0', '0', null, '0:0:0:0:0:0:0:1', '2018-05-22 11:14:19', '177', null, '1', '2018-01-02 09:32:15', '2018-05-22 11:14:19');
-INSERT INTO `sys_user` VALUES ('2', 'admin', 'gXp2EbyZ+sB/A6QUMhiUJQ==', '管理员', '15151551516', '843977358@qq.com', '843977358', null, null, null, 'ADMIN', null, null, null, 'ZHYD', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 10:54:18', '2', null, '1', '2018-01-02 15:56:34', '2018-05-22 10:54:18');
-INSERT INTO `sys_user` VALUES ('3', 'comment-admin', 'x9qCx3yP05yWfIE5wXbCsg==', '评论审核管理员', '', '', '', null, null, null, 'ADMIN', null, null, null, 'ZHYD', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 11:43:45', '1', null, '1', '2018-05-22 11:43:22', '2018-05-22 11:43:45');
+INSERT INTO `sys_user` VALUES ('1', 'root', 'CGUx1FN++xS+4wNDFeN6DA==', '超级管理员', '17688759175', '1973518337@qq.com', '1973518337', null, null, 'https://static.zhyd.me/static/img/favicon.ico', 'ROOT', null, null, null, 'CCM', null, null, '0', '0', null, '0:0:0:0:0:0:0:1', '2018-05-22 11:14:19', '177', null, '1', '2018-01-02 09:32:15', '2018-05-22 11:14:19');
+INSERT INTO `sys_user` VALUES ('2', 'admin', 'gXp2EbyZ+sB/A6QUMhiUJQ==', '管理员', '15151551516', '843977358@qq.com', '843977358', null, null, null, 'ADMIN', null, null, null, 'CCM', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 10:54:18', '2', null, '1', '2018-01-02 15:56:34', '2018-05-22 10:54:18');
+INSERT INTO `sys_user` VALUES ('3', 'comment-admin', 'x9qCx3yP05yWfIE5wXbCsg==', '评论审核管理员', '', '', '', null, null, null, 'ADMIN', null, null, null, 'CCM', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 11:43:45', '1', null, '1', '2018-05-22 11:43:22', '2018-05-22 11:43:45');
 
 -- ----------------------------
 -- Table structure for sys_user_role

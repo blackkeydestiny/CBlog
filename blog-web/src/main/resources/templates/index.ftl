@@ -44,7 +44,7 @@
                                 <a href="${config.siteUrl}/article/${item.id?c}">
                                     <img src="${config.qiuniuBasePath}${item.coverImage}" alt="${item.title}" title="${item.title}">
                                 </a>
-                                <div class="zyd-carousel-caption">${item.title}</div>
+                                <div class="ccm-carousel-caption">${item.title}</div>
                             </div>
                             </#list>
                         </div>
@@ -129,6 +129,7 @@
                             <li><a class="pointer" rel="external nofollow"><span class="label label-info">Maven</span></a></li>
                             <li><a class="pointer" rel="external nofollow"><span class="label label-warning">Bootstrap</span></a></li>
                             <li><a class="pointer" rel="external nofollow"><span class="label label-danger">阿里云</span></a></li>
+                            <li><a class="pointer" rel="external nofollow"><span class="label label-danger">UCloud</span></a></li>
                         </ul>
                     </form>
                 </article>

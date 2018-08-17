@@ -117,7 +117,7 @@
                                                     <span>更新说明</span>
                                                 </h2>
                                                 <div class="byline">
-                                                    <span>13 hours ago</span> by <a>zyd</a>
+                                                    <span>13 hours ago</span> by <a>chuming.chen</a>
                                                 </div>
                                                 <div class="excerpt">
                                                     <h5>修改功能：</h5>
@@ -147,7 +147,7 @@
                                                     <span>更新说明</span>
                                                 </h2>
                                                 <div class="byline">
-                                                    <span>13 hours ago</span> by <a>zyd</a>
+                                                    <span>13 hours ago</span> by <a>chuming.chen</a>
                                                 </div>
                                                 <div class="excerpt">
                                                     <h5>修改功能：</h5>
@@ -172,7 +172,7 @@
                                                     <span>更新说明</span>
                                                 </h2>
                                                 <div class="byline">
-                                                    <span>13 hours ago</span> by <a>zyd</a>
+                                                    <span>13 hours ago</span> by <a>chuming.chen</a>
                                                 </div>
                                                 <div class="excerpt">
                                                     <h5>修改功能：</h5>
@@ -196,7 +196,7 @@
                                                     <span>更新说明</span>
                                                 </h2>
                                                 <div class="byline">
-                                                    <span>13 hours ago</span> by <a>zyd</a>
+                                                    <span>13 hours ago</span> by <a>chuming.chen</a>
                                                 </div>
                                                 <div class="excerpt">
                                                     <h5>修复bug：</h5>
@@ -231,7 +231,7 @@
                                                     <span>上线说明</span>
                                                 </h2>
                                                 <div class="byline">
-                                                    <span>13 hours ago</span> by <a>zyd</a>
+                                                    <span>13 hours ago</span> by <a>chuming.chen</a>
                                                 </div>
                                                 <p class="excerpt">上线了<a>Read&nbsp;More</a>
                                                 </p>
@@ -250,9 +250,9 @@
                                                     <span>更新说明</span>
                                                 </h2>
                                                 <div class="byline">
-                                                    <span>13 hours ago</span> by <a>zyd</a>
+                                                    <span>13 hours ago</span> by <a>chuming.chen</a>
                                                 </div>
-                                                <p class="excerpt">列表页面的js代码提出为zyd.table.js公共代码</p>
+                                                <p class="excerpt">列表页面的js代码提出为ccm.table.js公共代码</p>
                                                 <p class="excerpt">ccm.tool.js</p>
                                             </div>
                                         </div>

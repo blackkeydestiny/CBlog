@@ -20,9 +20,7 @@
 package com.ccm.blog.util;
 
 import com.ccm.blog.business.entity.ImageFileInfo;
-import com.ccm.blog.framework.exception.ZhydFileException;
-import com.ccm.blog.business.entity.ImageFileInfo;
-import com.ccm.blog.framework.exception.ZhydFileException;
+import com.ccm.blog.framework.exception.CcmFileException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -59,7 +57,7 @@ public class ImageUtil {
                     .withType(FileUtil.getSuffix(file.getName()));
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ZhydFileException("获取图片信息发生异常！", e);
+            throw new CcmFileException("获取图片信息发生异常！", e);
         }
     }
 
@@ -80,7 +78,7 @@ public class ImageUtil {
                     .withType(FileUtil.getSuffix(multipartFile.getOriginalFilename()));
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ZhydFileException("获取图片信息发生异常！", e);
+            throw new CcmFileException("获取图片信息发生异常！", e);
         }
     }
 

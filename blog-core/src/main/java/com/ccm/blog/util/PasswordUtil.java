@@ -23,7 +23,7 @@ import com.ccm.blog.business.consts.CommonConst;
 import com.ccm.blog.business.consts.CommonConst;
 
 /**
- * @author: yadong.zhang
+ * @author: chuming.chen
  * @date: 2017/12/15 17:03
  */
 public class PasswordUtil {
@@ -38,7 +38,7 @@ public class PasswordUtil {
      * @throws Exception
      */
     public static String encrypt(String password, String salt) throws Exception {
-        return AesUtil.encrypt(Md5Util.MD5(salt + CommonConst.ZYD_SECURITY_KEY), password);
+        return AesUtil.encrypt(Md5Util.MD5(salt + CommonConst.CCM_SECURITY_KEY), password);
     }
 
     /**
@@ -51,6 +51,6 @@ public class PasswordUtil {
      * @throws Exception
      */
     public static String decrypt(String encryptPassword, String salt) throws Exception {
-        return AesUtil.decrypt(Md5Util.MD5(salt + CommonConst.ZYD_SECURITY_KEY), encryptPassword);
+        return AesUtil.decrypt(Md5Util.MD5(salt + CommonConst.CCM_SECURITY_KEY), encryptPassword);
     }
 }

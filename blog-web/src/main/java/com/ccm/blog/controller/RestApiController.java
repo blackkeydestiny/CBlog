@@ -30,9 +30,9 @@ import com.ccm.blog.business.service.BizCommentService;
 import com.ccm.blog.business.service.SysLinkService;
 import com.ccm.blog.business.service.SysNoticeService;
 import com.ccm.blog.business.vo.CommentConditionVO;
-import com.ccm.blog.framework.exception.ZhydArticleException;
-import com.ccm.blog.framework.exception.ZhydCommentException;
-import com.ccm.blog.framework.exception.ZhydLinkException;
+import com.ccm.blog.framework.exception.CcmArticleException;
+import com.ccm.blog.framework.exception.CcmCommentException;
+import com.ccm.blog.framework.exception.CcmLinkException;
 import com.ccm.blog.framework.object.ResponseVO;
 import com.ccm.blog.util.RestClientUtil;
 import com.ccm.blog.util.ResultUtil;
@@ -81,7 +81,7 @@ public class RestApiController {
         }
         try {
             sysLinkService.autoLink(link);
-        } catch (ZhydLinkException e) {
+        } catch (CcmLinkException e) {
             log.error("客户端自助申请友链发生异常", e);
             return ResultUtil.error(e.getMessage());
         }
@@ -125,7 +125,7 @@ public class RestApiController {
     public ResponseVO comment(Comment comment) {
         try {
             commentService.comment(comment);
-        } catch (ZhydCommentException e) {
+        } catch (CcmCommentException e) {
             log.error("评论发生异常", e);
             return ResultUtil.error(e.getMessage());
         }
@@ -136,7 +136,7 @@ public class RestApiController {
     public ResponseVO doSupport(@PathVariable("id") Long id) {
         try {
             commentService.doSupport(id);
-        } catch (ZhydCommentException e) {
+        } catch (CcmCommentException e) {
             log.error("评论点赞发生异常", e);
             return ResultUtil.error(e.getMessage());
         }
@@ -147,7 +147,7 @@ public class RestApiController {
     public ResponseVO doOppose(@PathVariable("id") Long id) {
         try {
             commentService.doOppose(id);
-        } catch (ZhydCommentException e) {
+        } catch (CcmCommentException e) {
             log.error("评论点踩发生异常", e);
             return ResultUtil.error(e.getMessage());
         }
@@ -158,7 +158,7 @@ public class RestApiController {
     public ResponseVO doPraise(@PathVariable("id") Long id) {
         try {
             articleService.doPraise(id);
-        } catch (ZhydArticleException e) {
+        } catch (CcmArticleException e) {
             log.error("文章点赞发生异常", e);
             return ResultUtil.error(e.getMessage());
         }

@@ -42,7 +42,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 @ServerEndpoint(value = "/websocket")
 @Component
-public class ZydWebsocketServer {
+public class CcmWebsocketServer {
 
     /**
      * 线程安全的socket集合

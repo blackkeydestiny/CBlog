@@ -23,8 +23,7 @@
  */
 package com.ccm.blog.business.util;
 
-import com.ccm.blog.framework.exception.ZhydCommentException;
-import com.ccm.blog.framework.exception.ZhydCommentException;
+import com.ccm.blog.framework.exception.CcmCommentException;
 import com.ccm.blog.util.RestClientUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
@@ -61,7 +60,7 @@ public class BaiduPushUtil extends RestClientUtil {
      */
     public static String doPush(String urlString, String params) {
         if (StringUtils.isEmpty(COOKIE)) {
-            throw new ZhydCommentException("尚未设置百度站长平台的Cookie信息，该功能不可用！");
+            throw new CcmCommentException("尚未设置百度站长平台的Cookie信息，该功能不可用！");
         }
         log.info("{} REST url: {}", new Date(), urlString);
         HttpURLConnection connection = null;

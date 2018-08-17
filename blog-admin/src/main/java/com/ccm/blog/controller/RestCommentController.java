@@ -26,7 +26,7 @@ import com.ccm.blog.business.enums.TemplateKeyEnum;
 import com.ccm.blog.business.service.BizCommentService;
 import com.ccm.blog.business.service.MailService;
 import com.ccm.blog.business.vo.CommentConditionVO;
-import com.ccm.blog.framework.exception.ZhydCommentException;
+import com.ccm.blog.framework.exception.CcmCommentException;
 import com.ccm.blog.framework.object.PageResult;
 import com.ccm.blog.framework.object.ResponseVO;
 import com.ccm.blog.util.ResultUtil;
@@ -69,7 +69,7 @@ public class RestCommentController {
     public ResponseVO reply(Comment comment) {
         try {
             commentService.commentForAdmin(comment);
-        } catch (ZhydCommentException e){
+        } catch (CcmCommentException e){
             return ResultUtil.error(e.getMessage());
         }
         return ResultUtil.success("成功");

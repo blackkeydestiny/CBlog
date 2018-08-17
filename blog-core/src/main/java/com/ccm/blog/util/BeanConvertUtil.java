@@ -19,8 +19,7 @@
  */
 package com.ccm.blog.util;
 
-import com.ccm.blog.framework.exception.ZhydException;
-import com.ccm.blog.framework.exception.ZhydException;
+import com.ccm.blog.framework.exception.CcmException;
 import org.springframework.beans.BeanUtils;
 
 /**
@@ -73,9 +72,9 @@ public class BeanConvertUtil {
             BeanUtils.copyProperties(source, t);
             return t;
         } catch (InstantiationException e) {
-            throw new ZhydException(target + " - 可能为一个抽象类、接口、数组类、基本类型或者该类缺少无参构造方法！", e);
+            throw new CcmException(target + " - 可能为一个抽象类、接口、数组类、基本类型或者该类缺少无参构造方法！", e);
         } catch (IllegalAccessException e) {
-            throw new ZhydException(target + " - 该类或其构造方法是不可访问的，或该类缺少无参构造方法！", e);
+            throw new CcmException(target + " - 该类或其构造方法是不可访问的，或该类缺少无参构造方法！", e);
         }
     }
 

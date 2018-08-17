@@ -20,12 +20,11 @@
 package com.ccm.blog.business.service.impl;
 
 import com.ccm.blog.business.annotation.RedisCache;
-import com.ccm.blog.framework.exception.ZhydLinkException;
+import com.ccm.blog.framework.exception.CcmLinkException;
 import com.ccm.blog.persistence.beans.SysLink;
 import com.ccm.blog.persistence.mapper.SysLinkMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ccm.blog.business.annotation.RedisCache;
 import com.ccm.blog.business.entity.Config;
 import com.ccm.blog.business.entity.Link;
 import com.ccm.blog.business.enums.LinkSourceEnum;
@@ -35,9 +34,6 @@ import com.ccm.blog.business.service.SysConfigService;
 import com.ccm.blog.business.service.SysLinkService;
 import com.ccm.blog.business.util.LinksUtil;
 import com.ccm.blog.business.vo.LinkConditionVO;
-import com.ccm.blog.framework.exception.ZhydLinkException;
-import com.ccm.blog.persistence.beans.SysLink;
-import com.ccm.blog.persistence.mapper.SysLinkMapper;
 import com.ccm.blog.util.HtmlUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -163,16 +159,16 @@ public class SysLinkServiceImpl implements SysLinkService {
      */
     @Override
     @RedisCache(flush = true)
-    public boolean autoLink(Link link) throws ZhydLinkException {
+    public boolean autoLink(Link link) throws CcmLinkException {
         String url = link.getUrl();
         Link bo = getOneByUrl(url);
         if (bo != null) {
-            throw new ZhydLinkException("本站已经添加过贵站的链接！");
+            throw new CcmLinkException("本站已经添加过贵站的链接！");
         }
         Config config = configService.get();
         if (!(LinksUtil.hasLinkByHtml(url, config.getDomain()))
                 && !LinksUtil.hasLinkByChinaz(url, config.getDomain())) {
-            throw new ZhydLinkException("贵站暂未添加本站友情链接！请先添加本站友链后重新提交申请！");
+            throw new CcmLinkException("贵站暂未添加本站友情链接！请先添加本站友链后重新提交申请！");
         }
 
         link.setSource(LinkSourceEnum.AUTOMATIC);

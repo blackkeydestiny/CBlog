@@ -20,11 +20,10 @@
 package com.ccm.blog.business.service;
 
 
-import com.ccm.blog.framework.exception.ZhydCommentException;
+import com.ccm.blog.framework.exception.CcmCommentException;
 import com.github.pagehelper.PageInfo;
 import com.ccm.blog.business.entity.Comment;
 import com.ccm.blog.business.vo.CommentConditionVO;
-import com.ccm.blog.framework.exception.ZhydCommentException;
 
 import java.util.List;
 import java.util.Map;
@@ -130,7 +129,7 @@ public interface BizCommentService {
      * @param comment
      * @return
      */
-    void commentForAdmin(Comment comment) throws ZhydCommentException;
+    void commentForAdmin(Comment comment) throws CcmCommentException;
 
     /**
      * 发表评论
@@ -138,7 +137,7 @@ public interface BizCommentService {
      * @param comment
      * @return
      */
-    Comment comment(Comment comment) throws ZhydCommentException;
+    Comment comment(Comment comment) throws CcmCommentException;
 
     /**
      * 查询近期评论

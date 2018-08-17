@@ -23,7 +23,7 @@ import com.ccm.blog.business.entity.Config;
 import com.ccm.blog.business.enums.QiniuUploadType;
 import com.ccm.blog.business.service.BizArticleService;
 import com.ccm.blog.business.service.SysConfigService;
-import com.ccm.blog.core.websocket.server.ZydWebsocketServer;
+import com.ccm.blog.core.websocket.server.CcmWebsocketServer;
 import com.ccm.blog.core.websocket.util.WebSocketUtil;
 import com.ccm.blog.framework.object.ResponseVO;
 import com.ccm.blog.util.FileUtil;
@@ -58,7 +58,7 @@ public class RestApiController {
     @Autowired
     private SysConfigService configService;
     @Autowired
-    private ZydWebsocketServer websocketServer;
+    private CcmWebsocketServer websocketServer;
 
     /**
      * 上传文件到七牛云

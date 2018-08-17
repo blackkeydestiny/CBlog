@@ -64,11 +64,11 @@ public class ExceptionHandleController {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ResponseVO handle(Throwable e) {
-        if (e instanceof ZhydArticleException
-                || e instanceof ZhydCommentException
-                || e instanceof ZhydFileException
-                || e instanceof ZhydLinkException
-                || e instanceof ZhydException) {
+        if (e instanceof CcmArticleException
+                || e instanceof CcmCommentException
+                || e instanceof CcmFileException
+                || e instanceof CcmLinkException
+                || e instanceof CcmException) {
             return ResultUtil.error(e.getMessage());
         }
         if (e instanceof UndeclaredThrowableException) {

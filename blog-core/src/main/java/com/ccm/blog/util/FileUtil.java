@@ -20,10 +20,7 @@
 package com.ccm.blog.util;
 
 import com.ccm.blog.business.enums.QiniuUploadType;
-import com.ccm.blog.framework.exception.ZhydFileException;
-import com.ccm.blog.plugin.QiniuApi;
-import com.ccm.blog.business.enums.QiniuUploadType;
-import com.ccm.blog.framework.exception.ZhydFileException;
+import com.ccm.blog.framework.exception.CcmFileException;
 import com.ccm.blog.plugin.QiniuApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
@@ -122,7 +119,7 @@ public class FileUtil {
     public static String uploadToQiniu(MultipartFile file, QiniuUploadType uploadType, boolean canBeNull) {
         // 不可为空并且file为空，抛出异常
         if (!canBeNull && null == file) {
-            throw new ZhydFileException("请选择图片");
+            throw new CcmFileException("请选择图片");
         }
         // 可为空并且file为空，忽略后边的代码，返回null
         if (canBeNull && null == file) {
@@ -138,11 +135,11 @@ public class FileUtil {
 //                return UrlCodeUtil.encode(filePath);
                 return filePath;
             } else {
-                throw new ZhydFileException("只支持图片");
+                throw new CcmFileException("只支持图片");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ZhydFileException("上传图片到七牛云发生异常，请检查七牛配置是否正常", e);
+            throw new CcmFileException("上传图片到七牛云发生异常，请检查七牛配置是否正常", e);
         }
     }
 

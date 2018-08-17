@@ -20,7 +20,7 @@
 package com.ccm.blog.business.service.impl;
 
 import com.ccm.blog.business.annotation.RedisCache;
-import com.ccm.blog.framework.exception.ZhydArticleException;
+import com.ccm.blog.framework.exception.CcmArticleException;
 import com.ccm.blog.framework.holder.RequestHolder;
 import com.ccm.blog.persistence.beans.*;
 import com.ccm.blog.persistence.mapper.BizArticleLookMapper;
@@ -29,7 +29,6 @@ import com.ccm.blog.persistence.mapper.BizArticleMapper;
 import com.ccm.blog.persistence.mapper.BizArticleTagsMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ccm.blog.business.annotation.RedisCache;
 import com.ccm.blog.business.entity.Article;
 import com.ccm.blog.business.entity.User;
 import com.ccm.blog.business.enums.ArticleStatusEnum;
@@ -37,13 +36,6 @@ import com.ccm.blog.business.enums.QiniuUploadType;
 import com.ccm.blog.business.service.BizArticleService;
 import com.ccm.blog.business.service.BizArticleTagsService;
 import com.ccm.blog.business.vo.ArticleConditionVO;
-import com.ccm.blog.framework.exception.ZhydArticleException;
-import com.ccm.blog.framework.holder.RequestHolder;
-import com.ccm.blog.persistence.beans.*;
-import com.ccm.blog.persistence.mapper.BizArticleLookMapper;
-import com.ccm.blog.persistence.mapper.BizArticleLoveMapper;
-import com.ccm.blog.persistence.mapper.BizArticleMapper;
-import com.ccm.blog.persistence.mapper.BizArticleTagsMapper;
 import com.ccm.blog.util.FileUtil;
 import com.ccm.blog.util.IpUtil;
 import com.ccm.blog.util.SessionUtil;
@@ -231,7 +223,7 @@ public class BizArticleServiceImpl implements BizArticleService {
         String key = ip + "_doPraise_" + id;
         ValueOperations<String, Object> operations = redisTemplate.opsForValue();
         if (redisTemplate.hasKey(key)) {
-            throw new ZhydArticleException("一个小时只能点赞一次哈，感谢支持~~");
+            throw new CcmArticleException("一个小时只能点赞一次哈，感谢支持~~");
         }
         User user = SessionUtil.getUser();
         BizArticleLove love = new BizArticleLove();
@@ -281,7 +273,7 @@ public class BizArticleServiceImpl implements BizArticleService {
     @Transactional(rollbackFor = Exception.class)
     public boolean publish(Article article, Long[] tags, MultipartFile file) {
         if (null == tags || tags.length <= 0) {
-            throw new ZhydArticleException("请至少选择一个标签");
+            throw new CcmArticleException("请至少选择一个标签");
         }
         if (null != file) {
             String filePath = FileUtil.uploadToQiniu(file, QiniuUploadType.COVER_IMAGE, true);
