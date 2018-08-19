@@ -96,6 +96,7 @@ public class RestApiController {
         Map<String, String> resultMap = new HashMap<>(4);
         String nickname = "匿名";
         String json = RestClientUtil.get("https://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins=" + qq, "GBK");
+        log.info("json ========" + json);
         if (!StringUtils.isEmpty(json)) {
             try {
                 json = json.replaceAll("portraitCallBack|\\\\s*|\\t|\\r|\\n", "");

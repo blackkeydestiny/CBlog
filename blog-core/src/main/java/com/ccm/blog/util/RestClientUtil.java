@@ -74,10 +74,13 @@ public class RestClientUtil {
     public static String request(String method, String urlString, Map<String, Object> params, String encode, Map<String, String> requestHeader) {
         // 解决因jdk版本问题造成的SSL请求失败的问题
         java.lang.System.setProperty("https.protocols", "TLSv1,TLSv1.1,TLSv1.2");
-        final HttpURLConnection connection;
+        //final HttpURLConnection connection;
+        HttpURLConnection connection;
         try {
             connection = openConnection(urlString);
+            //log.info("RestClientUtilTest url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
             connection.setRequestMethod(method);
+            //log.info("RestClientUtilTest1 url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
             if (null != requestHeader) {
                 Set<Map.Entry<String, String>> entrySet = requestHeader.entrySet();
                 for (Map.Entry<String, String> entry : entrySet) {
@@ -87,8 +90,39 @@ public class RestClientUtil {
                 connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 connection.setRequestProperty("Accept-Charset", "utf-8");
                 connection.setRequestProperty("User-Agent", USER_AGENT);
+                //log.info("RestClientUtilTest2 url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
             }
             connection.setDoOutput(true);
+            //log.info("RestClientUtilTest3 url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
+
+            //解决线上获取QQ号的昵称获取失败：Http response: 302: Moved Temporarily
+            boolean redirect = false;
+            // normally, 3xx is redirect
+            int status = connection.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK) {
+                if (status == HttpURLConnection.HTTP_MOVED_TEMP
+                        || status == HttpURLConnection.HTTP_MOVED_PERM
+                        || status == HttpURLConnection.HTTP_SEE_OTHER)
+                    redirect = true;
+                log.info("true");
+            }
+
+            if (redirect) {
+                // get redirect url from "location" header field
+                String newUrl = connection.getHeaderField("Location");
+                // get the cookie if need, for login
+                //String cookies = connection.getHeaderField("Set-Cookie");
+
+                // open the new connection again
+                connection = (HttpURLConnection) new URL(newUrl).openConnection();
+                //connection.setRequestProperty("Cookie", cookies);
+                connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                connection.setRequestProperty("Accept-Charset", "utf-8");
+                connection.setRequestProperty("User-Agent", USER_AGENT);
+
+                log.info("Redirect to URL : " + newUrl);
+            }
+
 
             if (!CollectionUtils.isEmpty(params)) {
                 final OutputStream outputStream = connection.getOutputStream();
@@ -102,11 +136,14 @@ public class RestClientUtil {
                 outputStream.close();
             }
 
-            log.info("RestClientUtil url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
+            //int status = connection.getResponseCode();
+            log.info("RestClientUtil url: {}, response: {} : {}", urlString, status, connection.getResponseMessage());
 
-            if (connection.getResponseCode() == HttpsURLConnection.HTTP_OK) {
+            if (status == HttpsURLConnection.HTTP_OK) {
                 return readInput(connection.getInputStream(), encode);
-            } else {
+            } else if(status == HttpsURLConnection.HTTP_MOVED_TEMP){
+                return readInput(connection.getInputStream(), encode);
+            }else {
                 return readInput(connection.getErrorStream(), encode);
             }
         } catch (Exception e) {
