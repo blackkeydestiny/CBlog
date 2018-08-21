@@ -172,3 +172,12 @@
 <script type="text/javascript" src="${config.staticWebSite}/js/ccm.core.js"></script>
 <script type="text/javascript" src="${config.staticWebSite}/js/ccm.js"></script>
 <script type="text/javascript" src="${config.staticWebSite}/js/ccm.comment.js"></script>
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?81344540f7bbb6d8e006a71382758b99";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
