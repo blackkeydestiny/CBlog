@@ -96,7 +96,7 @@ function SmartWizard(target, options) {
         });
 
         // Enable keyboard navigation
-        // by zhyd . 2018-06-09 10:54 禁用掉键盘左右键切换tab的功能。PS.该功能严重影响到了文章的编辑！
+        // by ccm . 2018-06-09 10:54 禁用掉键盘左右键切换tab的功能。PS.该功能严重影响到了文章的编辑！
         /*if($this.options.keyNavigation){
             $(document).keyup(function(e){
                 if(e.which==39){ // Right Arrow

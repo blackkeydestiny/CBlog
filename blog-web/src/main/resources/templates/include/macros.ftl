@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="baidu-site-verification" content="3OxI92b83y"/>
     <title>${title}</title>
     <meta name="author" content="${config.authorName}(${config.authorEmail})">
     <meta name="keywords" content="${keywords}"/>

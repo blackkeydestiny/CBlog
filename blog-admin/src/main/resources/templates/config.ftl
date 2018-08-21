@@ -38,7 +38,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="domain">根域名<span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" class="form-control col-md-7 col-xs-12" name="domain" id="domain"
-                                                   required="required" placeholder="请输入网站主域名:zhyd.me"/>
+                                                   required="required" placeholder="请输入网站主域名:chuming.online"/>
                                         </div>
                                     </div>
                                     <div class="item form-group">

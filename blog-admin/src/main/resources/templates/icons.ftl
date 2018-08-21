@@ -8,6 +8,8 @@
                 <div class="x_title">
                     <h2>Font Awesome Icons
                         <small>different icon design elements</small>
+                        &nbsp;&nbsp;
+                        <a href="http://fontawesome.dashgame.com/" target="_blank"><small>http://fontawesome.dashgame.com</small></a>
                     </h2>
                     <div class="clearfix"></div>
                 </div>

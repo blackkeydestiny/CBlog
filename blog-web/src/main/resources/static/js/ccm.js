@@ -271,7 +271,7 @@ $(function () {
                 }
             });
         } else {
-            console.warn("网站host获取失败，将不启动webscoket。");
+            console.warn("网站host获取失败，将不启动websocket。");
         }
     }
 

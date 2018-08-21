@@ -31,7 +31,7 @@
  */
 var editor = null, simplemde = null;
 
-var zhyd = window.zhyd || {
+var ccm = window.ccm || {
     initSidebar: function () {
         var a = function () {
             $RIGHT_COL.css("min-height", $(window).height());
@@ -72,7 +72,7 @@ var zhyd = window.zhyd || {
         });
     },
     initValidator: function () {
-        "undefined" != typeof validator && (console.log("zhyd.initValidator"), validator.message.date = "not a real date", $("form").on("blur", "input[required], input.optional, select.required", validator.checkField).on("change", "select.required", validator.checkField).on("keypress", "input[required][pattern]", validator.keypress), $(".multi.required").on("keyup blur", "input", function () {
+        "undefined" != typeof validator && (console.log("ccm.initValidator"), validator.message.date = "not a real date", $("form").on("blur", "input[required], input.optional, select.required", validator.checkField).on("change", "select.required", validator.checkField).on("keypress", "input[required][pattern]", validator.keypress), $(".multi.required").on("keyup blur", "input", function () {
             validator.checkField.apply($(this).siblings().last()[0])
         }), $("form").submit(function (a) {
             a.preventDefault();
@@ -366,9 +366,9 @@ $.fn.popover.Constructor.prototype.leave = function (a) {
         $(this).toggleClass('fa-plus-square fa-minus-square');
         $(".disable-content").slideToggle(400);
     });
-    zhyd.initDaterangepicker();
-    zhyd.initValidator();
-    zhyd.initSidebar();
+    ccm.initDaterangepicker();
+    ccm.initValidator();
+    ccm.initSidebar();
 
     $.ajax({
         cache: false,
@@ -410,7 +410,7 @@ $.fn.popover.Constructor.prototype.leave = function (a) {
         $this.uploadPreview({ imgContainer: $this.data("preview-container") });
     });
 
-    zhyd.initHelloMsg();
+    ccm.initHelloMsg();
 
     $("#updPassBtn").click(function () {
         var $form = $("#updPassForm");

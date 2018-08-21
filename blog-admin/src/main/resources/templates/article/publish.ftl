@@ -165,7 +165,7 @@
 
                 });
             }
-            zhyd.initWangEditor({
+            ccm.initWangEditor({
                 id: "editor",
                 contentId: "content",
                 uploadUrl: "/api/upload2Qiniu",

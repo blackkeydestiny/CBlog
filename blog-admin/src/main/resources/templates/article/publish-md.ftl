@@ -224,7 +224,7 @@
             uniqueId: "mdEditor_1",
             uploadUrl: "/api/upload2QiniuForMd"
         };
-        zhyd.initMdEditor(op);
+        ccm.initMdEditor(op);
         articleId = '${id}';
     </script>
     <script src="/assets/js/ccm.publish-article.js"></script>

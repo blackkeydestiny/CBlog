@@ -75,12 +75,11 @@ public class RestClientUtil {
         // 解决因jdk版本问题造成的SSL请求失败的问题
         java.lang.System.setProperty("https.protocols", "TLSv1,TLSv1.1,TLSv1.2");
         //final HttpURLConnection connection;
-        HttpURLConnection connection;
+        HttpURLConnection connection = null;
         try {
             connection = openConnection(urlString);
-            //log.info("RestClientUtilTest url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
             connection.setRequestMethod(method);
-            //log.info("RestClientUtilTest1 url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
+            connection.setInstanceFollowRedirects(false);
             if (null != requestHeader) {
                 Set<Map.Entry<String, String>> entrySet = requestHeader.entrySet();
                 for (Map.Entry<String, String> entry : entrySet) {
@@ -90,10 +89,8 @@ public class RestClientUtil {
                 connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 connection.setRequestProperty("Accept-Charset", "utf-8");
                 connection.setRequestProperty("User-Agent", USER_AGENT);
-                //log.info("RestClientUtilTest2 url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
             }
             connection.setDoOutput(true);
-            //log.info("RestClientUtilTest3 url: {}, response: {} : {}", urlString, connection.getResponseCode(), connection.getResponseMessage());
 
             //解决线上获取QQ号的昵称获取失败：Http response: 302: Moved Temporarily
             boolean redirect = false;
@@ -104,23 +101,23 @@ public class RestClientUtil {
                         || status == HttpURLConnection.HTTP_MOVED_PERM
                         || status == HttpURLConnection.HTTP_SEE_OTHER)
                     redirect = true;
-                log.info("true");
             }
 
             if (redirect) {
                 // get redirect url from "location" header field
                 String newUrl = connection.getHeaderField("Location");
                 // get the cookie if need, for login
-                //String cookies = connection.getHeaderField("Set-Cookie");
+                String cookies = connection.getHeaderField("Set-Cookie");
 
                 // open the new connection again
                 connection = (HttpURLConnection) new URL(newUrl).openConnection();
-                //connection.setRequestProperty("Cookie", cookies);
+                connection.setRequestMethod(method);
+                connection.setRequestProperty("Cookie", cookies);
                 connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 connection.setRequestProperty("Accept-Charset", "utf-8");
                 connection.setRequestProperty("User-Agent", USER_AGENT);
 
-                log.info("Redirect to URL : " + newUrl);
+                log.info("Redirect to NewURL : " + newUrl);
             }
 
 
@@ -141,13 +138,15 @@ public class RestClientUtil {
 
             if (status == HttpsURLConnection.HTTP_OK) {
                 return readInput(connection.getInputStream(), encode);
-            } else if(status == HttpsURLConnection.HTTP_MOVED_TEMP){
-                return readInput(connection.getInputStream(), encode);
             }else {
                 return readInput(connection.getErrorStream(), encode);
             }
         } catch (Exception e) {
             log.error("Http请求失败{}", urlString, e);
+        }finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
         }
         return null;
     }
@@ -172,11 +171,13 @@ public class RestClientUtil {
             return null;
         }
         StringBuilder content = new StringBuilder();
+        //BufferedReader reader = null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(is, encode));) {
             String line = "";
             while ((line = reader.readLine()) != null) {
                 content.append(line);
             }
+            //reader.close();
         } catch (Exception e) {
             log.error("数据读取失败", e);
         }
