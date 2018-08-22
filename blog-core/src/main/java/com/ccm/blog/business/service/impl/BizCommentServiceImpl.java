@@ -187,6 +187,7 @@ public class BizCommentServiceImpl implements BizCommentService {
         HttpServletRequest request = RequestHolder.getRequest();
         String ua = request.getHeader("User-Agent");
         UserAgent agent = UserAgent.parseUserAgentString(ua);
+
         // 浏览器
         Browser browser = agent.getBrowser();
         String browserInfo = browser.getName();
@@ -197,10 +198,12 @@ public class BizCommentServiceImpl implements BizCommentService {
             browserInfo += " " + version.getVersion();
         }
         comment.setBrowser(browserInfo);
+
         // 操作系统
         OperatingSystem os = agent.getOperatingSystem();
         comment.setOs(os.getName());
 //        comment.setOsShortName(os.getShortName());// 此处需开发者自己处理
+
         comment.setIp(IpUtil.getRealIp(request));
         String address = "定位失败";
         Config config = configService.get();

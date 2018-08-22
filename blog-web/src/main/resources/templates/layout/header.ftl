@@ -30,6 +30,7 @@
             <div class="pull-left site-desc" style="line-height: 0.9;">
                 <h1 style="font-size: 20px;font-weight: 700;" class="auto-shake"><a href="${config.siteUrl}" data-original-title="写博客、记日志、闲聊扯淡鼓捣技术" data-toggle="tooltip" data-placement="bottom">${config.siteName}</a></h1>
                 <p class="site-description">写博客、记日志、闲聊扯淡鼓捣技术</p>
+                <#--<p class="blog-description" id="hitokoto"></p>-->
             </div>
             <ul class="nav navbar-nav ">
                 <li>
