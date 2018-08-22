@@ -245,7 +245,8 @@
                                 message += '不合法的url：' + notValid + '\n';
                             }
                             message += '今日剩余' + remain + '条可推送的url。';
-                            $.alert.info(message, 5000);
+                            // $.alert.info(message, 5000);
+                            $.alert.info(message);
                         }
                     },
                     error: $.alert.ajaxError

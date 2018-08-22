@@ -33,7 +33,7 @@
                     <div class="bottom-line title"><i class="fa fa-question-circle-o"></i><strong>如何解除限制？</strong></div>
                     <ol>
                         <li>1.出门喝杯咖啡，一般来说回来的时候限制就被解除了 <i class="fa fa-coffee fa-2x"></i></li>
-                        <li>2.请联系<a target="_blank" href="javascript:void(0);" title="点击QQ联系我"onclick="window.open('tencent://message/?uin=843977358&amp;Site=www.${config.domain}&amp;Menu=yes')" rel="external nofollow">网站管理员</a></strong></li>
+                        <li>2.请联系<a target="_blank" href="javascript:void(0);" title="点击QQ联系我"onclick="window.open('tencent://message/?uin=1973518337&amp;Site=www.${config.domain}&amp;Menu=yes')" rel="external nofollow">网站管理员</a></strong></li>
                     </ol>
                     <div class="clear"></div>
                     <div class="bottom-line title"><i class="fa fa-question-circle-o"></i><strong>限制规则是怎么样的</strong></div>

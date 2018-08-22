@@ -150,7 +150,7 @@ CREATE TABLE `biz_comment`  (
 -- ----------------------------
 -- Records of biz_comment
 -- ----------------------------
-INSERT INTO `biz_comment` VALUES (1, 1, NULL, 0, '1973518337', 'Cinderella', 'https://q1.qlogo.cn/g?b=qq&nk=843977358&s=40', '1973518337@qq.com', 'https://chuming.online', 'VERIFYING', '0:0:0:0:0:0:0:1', NULL, NULL, '未知', 'Windows 7', NULL, 'Chrome 65.0.3325.146', NULL, '<p>测试评论</p>', NULL, 0, 0, '2018-05-22 11:50:40', '2018-05-22 11:50:40');
+INSERT INTO `biz_comment` VALUES (1, 1, NULL, 0, '1973518337', 'Cinderella', 'https://q1.qlogo.cn/g?b=qq&nk=1973518337&s=40', '1973518337@qq.com', 'https://chuming.online', 'VERIFYING', '0:0:0:0:0:0:0:1', NULL, NULL, '未知', 'Windows 7', NULL, 'Chrome 65.0.3325.146', NULL, '<p>测试评论</p>', NULL, 0, 0, '2018-05-22 11:50:40', '2018-05-22 11:50:40');
 
 -- ----------------------------
 -- Table structure for biz_tags

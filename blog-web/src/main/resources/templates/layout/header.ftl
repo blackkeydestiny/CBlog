@@ -50,7 +50,10 @@
                                     </ul>
                                 </li>
                             <#else>
-                                <li><a href="/type/${item.id?c}" class="menu_a"><i class="${item.icon?if_exists}"></i>${item.name?if_exists}</a></li>
+                                <#if item.parent?exists && item.parent?size gt 0>
+                                <#else>
+                                    <li><a href="/type/${item.id?c}" class="menu_a"><i class="${item.icon?if_exists}"></i>${item.name?if_exists}</a></li>
+                                </#if>
                             </#if>
                         </#list>
                     </#if>

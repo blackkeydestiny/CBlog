@@ -588,7 +588,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 INSERT INTO `sys_user` VALUES ('1', 'root', 'CGUx1FN++xS+4wNDFeN6DA==', '超级管理员', '17688759175', '1973518337@qq.com', '1973518337', null, null, 'https://static.zhyd.me/static/img/favicon.ico', 'ROOT', null, null, null, 'CCM', null, null, '0', '0', null, '0:0:0:0:0:0:0:1', '2018-05-22 11:14:19', '177', null, '1', '2018-01-02 09:32:15', '2018-05-22 11:14:19');
-INSERT INTO `sys_user` VALUES ('2', 'admin', 'gXp2EbyZ+sB/A6QUMhiUJQ==', '管理员', '15151551516', '843977358@qq.com', '843977358', null, null, null, 'ADMIN', null, null, null, 'CCM', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 10:54:18', '2', null, '1', '2018-01-02 15:56:34', '2018-05-22 10:54:18');
+INSERT INTO `sys_user` VALUES ('2', 'admin', 'gXp2EbyZ+sB/A6QUMhiUJQ==', '管理员', '15151551516', '1973518337@qq.com', '843977358', null, null, null, 'ADMIN', null, null, null, 'CCM', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 10:54:18', '2', null, '1', '2018-01-02 15:56:34', '2018-05-22 10:54:18');
 INSERT INTO `sys_user` VALUES ('3', 'comment-admin', 'x9qCx3yP05yWfIE5wXbCsg==', '评论审核管理员', '', '', '', null, null, null, 'ADMIN', null, null, null, 'CCM', '1', '1', '0', '0', '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1', '2018-05-22 11:43:45', '1', null, '1', '2018-05-22 11:43:22', '2018-05-22 11:43:45');
 
 -- ----------------------------

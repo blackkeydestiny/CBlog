@@ -27,8 +27,8 @@ public class BizCommentServiceImplTest extends BaseJunitTest {
         Comment comment = new Comment();
         comment.setPid(1L);
         comment.setNickname("测试");
-        comment.setEmail("843977358@qq.com");
-        comment.setQq("843977358");
+        comment.setEmail("1973518337@qq.com");
+        comment.setQq("1973518337");
         commentService.comment(comment);
 
         TimeUnit.SECONDS.sleep(60);

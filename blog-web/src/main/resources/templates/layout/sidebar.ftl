@@ -26,7 +26,7 @@
                                 <a class="tag-icon" title="微信" rel="external nofollow"><i class="fa fa-weixin"></i></a>
                             </li>
                             <li class="tqq auto-shake">
-                                <a class="tag-icon" href="javascript:window.open('tencent://message/?uin=843977358&Site=www.${config.domain}&Menu=yes')" title="点击QQ联系我" target="blank" rel="external nofollow"><i class="fa fa-qq"></i></a>
+                                <a class="tag-icon" href="javascript:window.open('tencent://message/?uin=1973518337&Site=www.${config.domain}&Menu=yes')" title="点击QQ联系我" target="blank" rel="external nofollow"><i class="fa fa-qq"></i></a>
                             </li>
                             <li class="tsina auto-shake">
                                 <a class="tag-icon" href="https://weibo.com/2805182893" title="点击查看我的微博" target="_blank" rel="external nofollow"><i class="fa fa-weibo"></i></a>

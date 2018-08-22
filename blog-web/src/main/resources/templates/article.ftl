@@ -66,7 +66,7 @@
                 </div>
                 <div class="blog-info overflow-initial">
                     <div class="bottom-line">
-                        <h1 class="blog-info-title">
+                        <h1 class="blog-info-title" style="text-align:center">
                             <strong>${article.title}</strong>
                         </h1>
                     </div>

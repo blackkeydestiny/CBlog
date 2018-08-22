@@ -41,7 +41,7 @@ public class RestApiControllerTest extends BaseJunitTest {
 
     @Test
     public void qq() throws Exception {
-        MvcResult result = mvc.perform(MockMvcRequestBuilders.post(host + "/api/qq/843977358")
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.post(host + "/api/qq/1973518337")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 // 打印出执行结果
