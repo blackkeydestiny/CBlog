@@ -191,7 +191,7 @@ public class BizCommentServiceImpl implements BizCommentService {
         // 浏览器
         Browser browser = agent.getBrowser();
         String browserInfo = browser.getName();
-//        comment.setBrowserShortName(browser.getShortName());// 此处需开发者自己处理
+        comment.setBrowserShortName(OsBrowserShortNameUtil.getBrowserShortName(browserInfo));// 此处需开发者自己处理
         // 浏览器版本
         Version version = agent.getBrowserVersion();
         if (version != null) {
@@ -202,7 +202,7 @@ public class BizCommentServiceImpl implements BizCommentService {
         // 操作系统
         OperatingSystem os = agent.getOperatingSystem();
         comment.setOs(os.getName());
-//        comment.setOsShortName(os.getShortName());// 此处需开发者自己处理
+        comment.setOsShortName(OsBrowserShortNameUtil.getOsShortName(os.getName()));// 此处需开发者自己处理
 
         comment.setIp(IpUtil.getRealIp(request));
         String address = "定位失败";

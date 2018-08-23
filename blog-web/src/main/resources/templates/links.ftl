@@ -26,7 +26,8 @@
                             <blockquote>
                                 <ul class="list-unstyled">
                                     <li>复制添加本站链接：<strong>&lt;a href="${config.siteUrl}" title="${config.siteDesc}" target="_blank"&gt;${config.siteName}&lt;/a&gt;</strong></li>
-                                    <li>复制添加本站图标：<strong>${config.siteFavicon}</strong></li>
+                                    <#--<li>复制添加本站图标：<strong>${config.siteFavicon}</strong></li>-->
+                                    <li>复制添加本站图标：<strong>https://www.chuming.online/favicon.ico</strong></li>
                                 </ul>
                             </blockquote>
                         </li>

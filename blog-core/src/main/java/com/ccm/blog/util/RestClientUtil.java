@@ -78,8 +78,8 @@ public class RestClientUtil {
         HttpURLConnection connection = null;
         try {
             connection = openConnection(urlString);
-            connection.setRequestMethod(method);
             connection.setInstanceFollowRedirects(false);
+            connection.setRequestMethod(method);
             if (null != requestHeader) {
                 Set<Map.Entry<String, String>> entrySet = requestHeader.entrySet();
                 for (Map.Entry<String, String> entry : entrySet) {
@@ -111,6 +111,7 @@ public class RestClientUtil {
 
                 // open the new connection again
                 connection = (HttpURLConnection) new URL(newUrl).openConnection();
+                connection.setInstanceFollowRedirects(false);
                 connection.setRequestMethod(method);
                 connection.setRequestProperty("Cookie", cookies);
                 connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
