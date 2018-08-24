@@ -287,5 +287,12 @@ public class Config {
         this.sysConfig.setBaiduApiAk(baiduApiAk);
     }
 
+    public String getThemeColor(){
+        return this.sysConfig.getThemeColor();
+    }
+
+    public void setThemeColor(String themeColor){
+        this.sysConfig.setThemeColor(themeColor);
+    }
 }
 

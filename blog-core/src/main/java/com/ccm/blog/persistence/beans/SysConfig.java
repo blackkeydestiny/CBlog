@@ -73,4 +73,9 @@ public class SysConfig extends AbstractDO {
      * 调用百度的api时必须
      */
     private String baiduApiAk;
+
+    /**
+     * 主题颜色
+     */
+    private String themeColor;
 }

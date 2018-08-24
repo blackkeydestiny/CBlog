@@ -298,6 +298,16 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="themeColor">选择主题颜色</label>
+                                        <div class="col-md-2 col-sm-2 col-xs-2">
+                                            <select class="form-control" name="themeColor" required="required" id="themeColor" style="width: 120px;">
+                                                <option value="1">绿色</option>
+                                                <option value="2">紫色</option>
+                                                <option value="3">黑白</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comment"></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <button type="button" class="btn btn-primary saveBtn"><i class="fa fa-save"> 保存</i></button>
