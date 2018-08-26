@@ -40,4 +40,9 @@ public class ApiUrlConst {
      */
     public static final String BAIDU_PUSH_URL = "http://data.zz.baidu.com/";
 
+    /**
+     * 码云资源仓库url
+     */
+    public static final String MAYUN_ASSET_URL = "https://gitee.com/blackkeydestiny/blogAssets/raw/master/";
+
 }

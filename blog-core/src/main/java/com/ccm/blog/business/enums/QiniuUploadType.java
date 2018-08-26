@@ -36,7 +36,12 @@ import com.ccm.blog.business.consts.FileConst;
 public enum QiniuUploadType {
     QRCODE("ccm/qrcode/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE),
     SIMPLE("ccm/article/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE),
-    COVER_IMAGE("ccm/cover/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE);
+    COVER_IMAGE("ccm/cover/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE),
+
+    //图片托管码云
+    MAYUN_COVERIMAGE("article/cover/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE),
+    MAYUN_CONTENTIMAGE("article/content/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE),
+    MAYUN_QRCODEIMAGE("qrcode/", FileConst.DEFAULT_IMG_WIDTH, FileConst.DEFAULT_IMG_HEIGHT, FileConst.DEFAULT_IMG_SIZE);
 
     private String path;
     /**

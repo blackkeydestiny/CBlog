@@ -87,6 +87,10 @@ public class Article {
         this.bizArticle.setCoverImage(coverImage);
     }
 
+    public String getCoverImage150(){return this.bizArticle.getCoverImage150();}
+
+    public void setCoverImage150(String coverImage150){this.bizArticle.setCoverImage150(coverImage150);}
+
     public String getQrcodePath() {
         return this.bizArticle.getQrcodePath();
     }

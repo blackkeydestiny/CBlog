@@ -140,7 +140,7 @@
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="homeDesc">微信赞赏码 </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="file" class="form-control col-md-7 col-xs-12 uploadPreview" data-preview-container="#wxPraiseCodeFilePreview" name="wxPraiseCodeFile" id="wxPraiseCodeFile"/>
+                                            <input type="file" disabled="disabled" class="form-control col-md-7 col-xs-12 uploadPreview" data-preview-container="#wxPraiseCodeFilePreview" name="wxPraiseCodeFile" id="wxPraiseCodeFile"/>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div id="wxPraiseCodeFilePreview" style="width: 200px;height: auto"></div>
@@ -149,7 +149,7 @@
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="homeKeywords">支付宝赞赏码 </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="file" class="form-control col-md-7 col-xs-12 uploadPreview" data-preview-container="#zfbPraiseCodeFilePreview" id="zfbPraiseCodeFile" name="zfbPraiseCodeFile"/>
+                                            <input type="file" disabled="disabled" class="form-control col-md-7 col-xs-12 uploadPreview" data-preview-container="#zfbPraiseCodeFilePreview" id="zfbPraiseCodeFile" name="zfbPraiseCodeFile"/>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div id="zfbPraiseCodeFilePreview" style="width: 200px;height: auto"></div>
@@ -158,7 +158,7 @@
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comment"></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <button type="button" class="btn btn-primary saveBtn"><i class="fa fa-save"> 保存</i></button>
+                                            <button type="button" disabled="disabled" class="btn btn-primary saveBtn"><i class="fa fa-save"> 保存</i></button>
                                         </div>
                                     </div>
                                 </form>
@@ -170,34 +170,34 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qiniuAccessKey">七牛ACCESS_KEY <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" class="form-control col-md-7 col-xs-12" name="qiniuAccessKey" id="qiniuAccessKey"
-                                                  required="required" placeholder="请输入七牛ACCESS_KEY"/>
+                                                   disabled="disabled" required="required" placeholder="请输入七牛ACCESS_KEY"/>
                                         </div>
                                     </div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qiniuSecretKey">七牛SECRET_KEY <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" class="form-control col-md-7 col-xs-12" name="qiniuSecretKey" id="qiniuSecretKey"
-                                                   required="required" placeholder="请输入七牛SECRET_KEY"/>
+                                                   disabled="disabled" required="required" placeholder="请输入七牛SECRET_KEY"/>
                                         </div>
                                     </div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qiniuBucketName">七牛BUCKET_NAME <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" class="form-control col-md-7 col-xs-12" name="qiniuBucketName" id="qiniuBucketName"
-                                                   required="required" placeholder="请输入七牛BUCKET_NAME"/>
+                                                   disabled="disabled" required="required" placeholder="请输入七牛BUCKET_NAME"/>
                                         </div>
                                     </div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qiuniuBasePath">七牛路径 <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" class="form-control col-md-7 col-xs-12" name="qiuniuBasePath" id="qiuniuBasePath"
-                                                   required="required" placeholder="请输入七牛路径"/>
+                                                   disabled="disabled" required="required" placeholder="请输入七牛路径"/>
                                         </div>
                                     </div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comment"></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <button type="button" class="btn btn-primary saveBtn"><i class="fa fa-save"> 保存</i></button>
+                                            <button type="button" disabled="disabled" class="btn btn-primary saveBtn"><i class="fa fa-save"> 保存</i></button>
                                         </div>
                                     </div>
                                 </form>

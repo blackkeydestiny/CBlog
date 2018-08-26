@@ -32,7 +32,8 @@
 </@header>
 
 <#if article.coverImage?exists>
-    <img src="${config.qiuniuBasePath}${article.coverImage?if_exists}" onerror="this.src='${config.staticWebSite}/img/default_article_cover.jpg'" style="display: none;" id="cover-img">
+    <#--<img src="${config.qiuniuBasePath}${article.coverImage?if_exists}" onerror="this.src='${config.staticWebSite}/img/default_article_cover.jpg'" style="display: none;" id="cover-img">-->
+<img src="${article.coverImage?if_exists}" onerror="this.src='${config.staticWebSite}/img/default_article_cover.jpg'" style="display: none;" id="cover-img">
 </#if>
 <div class="container custome-container">
     <nav class="breadcrumb">
@@ -168,8 +169,9 @@
                             <li class="line-li">
                                 <div class="line-container">
                                     <div class="line-left">
-                                        <#if item.coverImage?exists>
-                                            <img class="lazy-img" data-original="${config.qiuniuBasePath}${item.coverImage}" width="50" height="50" rel="external nofollow"/>
+                                        <#if item.coverImage150?exists>
+                                            <#--<img class="lazy-img" data-original="${config.qiuniuBasePath}${item.coverImage}" width="50" height="50" rel="external nofollow"/>-->
+                                            <img class="lazy-img" data-original="${item.coverImage150}" width="50" height="50" rel="external nofollow"/>
                                         <#else>
                                             <img class="lazy-img" data-original="${config.staticWebSite}/img/favicon.ico" width="50" height="50" rel="external nofollow"/>
                                         </#if>

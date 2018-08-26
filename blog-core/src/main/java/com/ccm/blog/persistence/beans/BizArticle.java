@@ -43,6 +43,7 @@ public class BizArticle extends AbstractDO {
     private String title;
     private Long userId;
     private String coverImage;
+    private String coverImage150;
     private String qrcodePath;
     private Boolean isMarkdown;
     private String content;

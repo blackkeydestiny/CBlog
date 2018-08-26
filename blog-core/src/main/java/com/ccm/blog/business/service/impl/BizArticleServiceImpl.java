@@ -276,9 +276,11 @@ public class BizArticleServiceImpl implements BizArticleService {
             throw new CcmArticleException("请至少选择一个标签");
         }
         if (null != file) {
-            String filePath = FileUtil.uploadToQiniu(file, QiniuUploadType.COVER_IMAGE, true);
+            //String filePath = FileUtil.uploadToQiniu(file, QiniuUploadType.COVER_IMAGE, true);
+            Map<String, String> filePaths = FileUtil.uploadToMayun(file, QiniuUploadType.MAYUN_COVERIMAGE, false);
             // 保存封面图片
-            article.setCoverImage(filePath);
+            article.setCoverImage(filePaths.get("coverImage"));
+            article.setCoverImage150(filePaths.get("coverImage150"));
         }
         Long articleId = null;
         if ((articleId = article.getId()) != null) {

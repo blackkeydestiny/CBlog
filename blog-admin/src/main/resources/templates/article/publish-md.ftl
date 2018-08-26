@@ -178,6 +178,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="addroleLabel">选择图片</h4>
+                <#--<strong style="text-align: center">弃用七牛云，所以禁用本地上传，文章图片托管在码云上</strong>-->
             </div>
             <div class="modal-body">
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
@@ -188,6 +189,9 @@
                         <li role="presentation" class="">
                             <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">本地图片</a>
                         </li>
+                        <#--<li role="presentation" class="">-->
+                            <#--<a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">码云图片地址</a>-->
+                        <#--</li>-->
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in material-box" id="tab_content1" aria-labelledby="home-tab">
@@ -200,6 +204,33 @@
                                 <img class="coverImage" src="" alt="">
                             </div>
                         </div>
+                        <#--码云图片地址-->
+                        <#--<div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">-->
+                            <#--<form class="form-horizontal form-label-left" novalidate>-->
+                                <#--<div class="item form-group">-->
+                                    <#--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="homeKeywords">大图URL: <span-->
+                                            <#--class="required">*</span></label>-->
+                                    <#--<div class="col-md-6 col-sm-7 col-xs-12">-->
+                                        <#--<input type="text" class="form-control col-md-7 col-xs-12" name="coverImage" id="coverImage"-->
+                                               <#--required="required" placeholder="请输入码云图片url"/>-->
+                                    <#--</div>-->
+                                <#--</div>-->
+                                <#--<div class="item form-group">-->
+                                    <#--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="homeKeywords">小图URL: <span-->
+                                            <#--class="required">*</span></label>-->
+                                    <#--<div class="col-md-6 col-sm-7 col-xs-12">-->
+                                        <#--<input type="text" class="form-control col-md-7 col-xs-12" name="coverImage150" id="coverImage150"-->
+                                               <#--required="required" placeholder="请输入码云图片url"/>-->
+                                    <#--</div>-->
+                                <#--</div>-->
+                                <#--<div class="item form-group">-->
+                                    <#--<div class="preview" class="fa-2x">-->
+                                        <#--<img class="coverImage" src="" alt="">-->
+                                        <#--<img class="coverImage150" src="" alt="">-->
+                                    <#--</div>-->
+                                <#--</div>-->
+                            <#--</form>-->
+                        <#--</div>-->
                     </div>
                 </div>
             </div>

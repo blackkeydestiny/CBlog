@@ -7,6 +7,7 @@
 		<result property="title" jdbcType="VARCHAR" column="title"/>
 		<result property="userId" jdbcType="BIGINT" column="user_id"/>
 		<result property="coverImage" jdbcType="VARCHAR" column="cover_image"/>
+		<result property="coverImage150" jdbcType="VARCHAR" column="cover_image150"/>
 		<result property="qrcodePath" jdbcType="VARCHAR" column="qrcode_path"/>
 		<result property="isMarkdown" jdbcType="BIT" column="is_markdown"/>
 		<result property="content" jdbcType="VARCHAR" column="content"/>
@@ -41,6 +42,7 @@
 		title,
 		user_id,
 		cover_image,
+		cover_image150,
 		qrcode_path,
 		content,
 		top,

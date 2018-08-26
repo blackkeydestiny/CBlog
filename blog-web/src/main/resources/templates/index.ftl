@@ -42,7 +42,8 @@
                             <#list recommendedList as item>
                             <div class="item ${(item_index == 0)?string('active','')}">
                                 <a href="${config.siteUrl}/article/${item.id?c}">
-                                    <img src="${config.qiuniuBasePath}${item.coverImage}" alt="${item.title}" title="${item.title}">
+                                    <#--<img src="${config.qiuniuBasePath}${item.coverImage}" alt="${item.title}" title="${item.title}">-->
+                                        <img src="${item.coverImage}" alt="${item.title}" title="${item.title}">
                                 </a>
                                 <div class="ccm-carousel-caption">${item.title}</div>
                             </div>
@@ -66,8 +67,9 @@
                     <article class="fade-in">
                         <figure class="thumbnail">
                             <a href="${config.siteUrl}/article/${item.id?c}">
-                                <#if item.coverImage?exists && (item.coverImage?length > 7)>
-                                    <img width="150" height="150" data-original="${config.qiuniuBasePath}${item.coverImage}-img_150x150" class="img-responsive lazy-img" alt="${item.title?if_exists}">
+                                <#if item.coverImage150?exists && (item.coverImage150?length > 7)>
+                                    <#--<img width="150" height="150" data-original="${config.qiuniuBasePath}${item.coverImage}-img_150x150" class="img-responsive lazy-img" alt="${item.title?if_exists}">-->
+                                    <img width="150" height="150" data-original="${item.coverImage150}" class="img-responsive lazy-img" alt="${item.title?if_exists}">
                                 <#else>
                                     <img width="150" height="150" data-original="${config.staticWebSite}/img/default_article_cover.jpg" class="img-responsive lazy-img" alt="${item.title?if_exists}">
                                 </#if>
@@ -105,7 +107,7 @@
                 <article class="fade-in" style="height: auto">
                     <div class="rows">
                         <div class="col-md-10 col-sm-12">
-                            <div class="h3 text-center">亲，啥也没找到啊~~<img src="http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/15/j_thumb.gif" alt="[囧]"></div>
+                            <div class="h3 text-center">亲，啥也没找到啊~~<img src="${config.staticWebSite}/img/jiong.gif" alt="[囧]"></div>
                             <div class="h5 text-center">换个姿势，再来一次~~</div>
                         </div>
                         <div class="col-md-2 col-sm-12">
