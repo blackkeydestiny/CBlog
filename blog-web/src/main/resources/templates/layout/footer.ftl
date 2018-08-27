@@ -68,6 +68,7 @@
         </div>
     </div>
 </div>
+<#-- 赞助弹窗 -->
 <div class="modal fade" id="reward" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -103,6 +104,7 @@
         <div class="loading-2">Loading...</div>
     </div>
 </div>
+<#--其他链接-->
 <div class="clear blog-footer">
     <div class="container">
         <div class="col-xs-12 col-sm-4 col-md-4 text-left fade-in">
@@ -146,7 +148,7 @@
         <#--<p>托管于<a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=wylo59db" target="_blank" title="阿里云-为了无法计算的价值" data-toggle="tooltip" data-placement="bottom" rel="external nofollow">阿里云</a> & <a href="https://portal.qiniu.com/signup?code=3l8yx2v0f21ci" target="_blank" title="七牛云-国内领先的企业级云服务商" data-toggle="tooltip" data-placement="bottom" rel="external nofollow">七牛云</a> · <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank" title="查看备案信息" data-toggle="tooltip" data-placement="bottom" rel="external nofollow">鲁ICP备17054970号-1</a></p>-->
         <#--<p>Copyright&copy;2016-${.now?string("yyyy")} ${config.siteName} · Powered by <a href="https://gitee.com/yadong.zhang/DBlog" title="DBlog是一款简洁美观、自适应的Java博客系统..." data-toggle="tooltip" data-placement="right" target="_blank"><strong>DBlog</strong></a> · <a href="http://tongji.baidu.com/web/welcome/ico?s=590226d2f4ffbf051442eb75f37333c9" target="_blank" title="点击查看${config.siteName}网站统计详情" data-toggle="tooltip" data-placement="right" rel="external nofollow"><i class="fa fa-bar-chart-o fa-fw fa-spin"></i>网站统计</a></p>-->
         <p>托管于<a href="https://www.ucloud.cn/site/active/gift.html" target="_blank" title="UCloud-中国知名的中立云计算服务商" data-toggle="tooltip" data-placement="bottom" rel="external nofollow">UCloud</a> & <a href="https://gitee.com/" target="_blank" title="码云 Gitee-开源中国Git代码托管平台" data-toggle="tooltip" data-placement="bottom" rel="external nofollow">码云</a></p>
-        <p>Copyright&copy;2016-${.now?string("yyyy")} ${config.siteName} · 保留所有版权 · <a href="http://tongji.baidu.com/web/welcome/ico?s=590226d2f4ffbf051442eb75f37333c9" target="_blank" title="点击查看${config.siteName}网站统计详情" data-toggle="tooltip" data-placement="right" rel="external nofollow"><i class="fa fa-bar-chart-o fa-fw fa-spin"></i>网站统计</a></p>
+        <p>Copyright&copy;2016-${.now?string("yyyy")} ${config.siteName} · <a href="http://tongji.baidu.com/web/welcome/ico?s=590226d2f4ffbf051442eb75f37333c9" target="_blank" title="点击查看${config.siteName}网站统计详情" data-toggle="tooltip" data-placement="right" rel="external nofollow"><i class="fa fa-bar-chart-o fa-fw fa-spin"></i>网站统计</a></p>
     </div>
 </footer>
 <a class="to-top" title="点击返回顶部" data-toggle="tooltip" data-placement="bottom"></a>

@@ -1,3 +1,4 @@
+<#--最顶部-->
 <nav id="topmenu" class="navbar navbar-default navbar-fixed-top">
     <div class="menu-box">
         <div class="pull-left">
@@ -14,6 +15,7 @@
         </div>
     </div>
 </nav>
+<#--导航栏-->
 <nav id="mainmenu" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="menu-box">
         <div class="navbar-header">

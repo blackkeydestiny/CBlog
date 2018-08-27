@@ -90,7 +90,8 @@ if(articleId){
                     $('#comment').iCheck(info.comment ? 'check' : 'uncheck');
                 }
                 if(info['coverImage']){
-                    $(".coverImage").attr('src', appConfig.qiniuPath + info['coverImage']);
+                    // $(".coverImage").attr('src', appConfig.qiniuPath + info['coverImage']);
+                    $(".coverImage").attr('src', info['coverImage']);
                 }
                 var contentMd = info['contentMd'];
                 if(contentMd){
@@ -143,9 +144,10 @@ $("#file-upload-btn").click(function () {
             success: function (json) {
                 $.alert.ajaxSuccess(json);
                 loadImg = true;
-                json.qiniuPath = appConfig.qiniuPath;
+                //json.qiniuPath = appConfig.qiniuPath;
                 var $box = $(".list-material");
-                var tpl = '{{#data}}<li data-imgUrl="{{.}}"><div class="col-md-55"><img class="lazy-img" data-original="{{qiniuPath}}{{.}}" alt="image"></div></li>{{/data}}{{^data}}<li>素材库为空</li>{{/data}}';
+                // var tpl = '{{#data}}<li data-imgUrl="{{.}}"><div class="col-md-55"><img class="lazy-img" data-original="{{qiniuPath}}{{.}}" alt="image"></div></li>{{/data}}{{^data}}<li>素材库为空</li>{{/data}}';
+                var tpl = '{{#data}}<li data-imgUrl="{{.}}"><div class="col-md-55"><img class="lazy-img" data-original="{{.}}" alt="image"></div></li>{{/data}}{{^data}}<li>素材库为空</li>{{/data}}';
                 var html = Mustache.render(tpl, json);
                 $box.html(html);
                 $box.find("li").click(function () {
@@ -157,7 +159,8 @@ $("#file-upload-btn").click(function () {
                     if($this.hasClass("active")){
                         var imgUrl = $this.attr("data-imgUrl");
                         $("#cover-img-input").val(imgUrl);
-                        $(".preview img.coverImage").attr("src", appConfig.qiniuPath + imgUrl);
+                        // $(".preview img.coverImage").attr("src", appConfig.qiniuPath + imgUrl);
+                        $(".preview img.coverImage").attr("src", imgUrl);
                     }
                 });
                 $("img.lazy-img").lazyload({
