@@ -94,6 +94,11 @@ public class FileUtil {
         return getSuffix(file.getName());
     }
 
+    /**
+     * 获取文件的后缀
+     * @param fileName
+     * @return
+     */
     public static String getSuffix(String fileName) {
         int idx = fileName.lastIndexOf(".");
         idx = idx == -1 ? fileName.length() : idx;
@@ -119,6 +124,13 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 上传文件到七牛云
+     * @param file
+     * @param uploadType
+     * @param canBeNull
+     * @return
+     */
     public static String uploadToQiniu(MultipartFile file, QiniuUploadType uploadType, boolean canBeNull) {
         // 不可为空并且file为空，抛出异常
         if (!canBeNull && null == file) {
@@ -178,7 +190,7 @@ public class FileUtil {
 
 
     /**
-     *
+     * 上传文件到码云(注意：此方法只是存储码云资源的URL，并不是真正的将文件存储到码云上)
      * @param file
      * @param uploadType
      * @param canBeNull

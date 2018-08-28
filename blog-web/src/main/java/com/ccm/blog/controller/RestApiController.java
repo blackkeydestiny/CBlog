@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 网站接口类，申请友链、评论、点赞等
+ * 网站接口类，申请友链、评论、点赞等。通过ccm.js和ccm.comment.js发送ajax请求调用
  *
  * @author chuming.chen
  * @version 1.0
@@ -72,6 +72,12 @@ public class RestApiController {
     @Autowired
     private SysNoticeService noticeService;
 
+    /**
+     * 申请友情链接
+     * @param link
+     * @param bindingResult
+     * @return
+     */
     @PostMapping("/autoLink")
     public ResponseVO autoLink(@Validated Link link, BindingResult bindingResult) {
         log.info("申请友情链接......");
@@ -88,6 +94,11 @@ public class RestApiController {
         return ResultUtil.success("已成功添加友链，祝您生活愉快！");
     }
 
+    /**
+     * 通过QQ号获取QQ昵称
+     * @param qq
+     * @return
+     */
     @PostMapping("/qq/{qq}")
     public ResponseVO qq(@PathVariable("qq") String qq) {
         if (StringUtils.isEmpty(qq)) {
@@ -95,7 +106,7 @@ public class RestApiController {
         }
         Map<String, String> resultMap = new HashMap<>(4);
         String nickname = "匿名";
-        String json = RestClientUtil.get("https://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins=" + qq, "GBK");
+        String json = RestClientUtil.get("http://r.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins=" + qq, "GBK");
         if (!StringUtils.isEmpty(json)) {
             try {
                 json = json.replaceAll("portraitCallBack|\\\\s*|\\t|\\r|\\n", "");
@@ -115,12 +126,22 @@ public class RestApiController {
         return ResultUtil.success(null, resultMap);
     }
 
+    /**
+     * 加载comments列表
+     * @param vo
+     * @return
+     */
     @PostMapping("/comments")
     public ResponseVO comments(CommentConditionVO vo) {
         vo.setStatus(CommentStatusEnum.APPROVED.toString());
         return ResultUtil.success(null, commentService.list(vo));
     }
 
+    /**
+     * 提交comment
+     * @param comment
+     * @return
+     */
     @PostMapping("/comment")
     public ResponseVO comment(Comment comment) {
         try {
@@ -132,6 +153,11 @@ public class RestApiController {
         return ResultUtil.success("评论发表成功，系统正在审核，请稍后刷新页面查看！");
     }
 
+    /**
+     * 评论点赞
+     * @param id
+     * @return
+     */
     @PostMapping("/doSupport/{id}")
     public ResponseVO doSupport(@PathVariable("id") Long id) {
         try {
@@ -143,6 +169,11 @@ public class RestApiController {
         return ResultUtil.success("");
     }
 
+    /**
+     * 评论点踩
+     * @param id
+     * @return
+     */
     @PostMapping("/doOppose/{id}")
     public ResponseVO doOppose(@PathVariable("id") Long id) {
         try {
@@ -154,6 +185,11 @@ public class RestApiController {
         return ResultUtil.success("");
     }
 
+    /**
+     * 文章点赞
+     * @param id
+     * @return
+     */
     @PostMapping("/doPraise/{id}")
     public ResponseVO doPraise(@PathVariable("id") Long id) {
         try {
@@ -165,6 +201,10 @@ public class RestApiController {
         return ResultUtil.success("");
     }
 
+    /**
+     * 页面通知
+     * @return
+     */
     @PostMapping("/listNotice")
     public ResponseVO listNotice() {
         return ResultUtil.success("", noticeService.listRelease());

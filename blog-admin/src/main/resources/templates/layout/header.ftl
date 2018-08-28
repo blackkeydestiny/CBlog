@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DBlog${config.siteName}后台系统</title>
-    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="${config.siteFavicon}" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
                 <div class="profile clearfix">
                     <div class="profile_pic">
                         <#--<img src="/assets/images/loading.gif" alt="..." class="img-circle profile_img">-->
-                            <img src="/assets/images/picture.jpg" alt="..." class="img-circle profile_img">
+                            <img src="/assets/images/comedy.png" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span id="hello_msg">&nbsp;</span>
