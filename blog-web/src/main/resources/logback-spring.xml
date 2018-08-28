@@ -83,11 +83,11 @@
             <appender-ref ref="FILE_ERROR" />
             <appender-ref ref="FILE_INFO" />
         </root>
-        <root level="INFO">
-            <appender-ref ref="STDOUT"/>
-            <appender-ref ref="FILE_ERROR" />
-            <appender-ref ref="FILE_INFO" />
-        </root>
+        <!--<root level="INFO">-->
+            <!--<appender-ref ref="STDOUT"/>-->
+            <!--<appender-ref ref="FILE_ERROR" />-->
+            <!--<appender-ref ref="FILE_INFO" />-->
+        <!--</root>-->
     </springProfile>
 
 </configuration>  
