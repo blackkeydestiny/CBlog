@@ -379,7 +379,7 @@ $.fn.popover.Constructor.prototype.leave = function (a) {
             $.alert.ajaxSuccess(json);
             var $box = $(".msg_list > li:last-child");
             if (!json.data) {
-                var html = '<li><a><span class="image"><img src="/assets/images/loading.gif" alt="user avatar"></span> <span><span>系统管理员</span> <span class="time">3 mins ago</span></span> <span class="message">暂无消息</span></a></li>';
+                var html = '<li><a><span class="image"><img src="/assets/images/comedy.png" alt="user avatar"></span> <span><span>系统管理员</span> <span class="time">3 mins ago</span></span> <span class="message">暂无消息</span></a></li>';
                 $box.before(html);
                 return;
             }
