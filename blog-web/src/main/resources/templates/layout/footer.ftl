@@ -31,7 +31,7 @@
         </div>
     </div>
 </div>
-<!--评论弹框-->
+<#--评论弹框-->
 <div class="modal fade bs-example-modal-sm" id="comment-detail-modal" tabindex="-1" role="dialog" aria-labelledby="comment-detail-modal-label">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">

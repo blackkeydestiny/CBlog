@@ -6,15 +6,17 @@
 </@header>
 
 <div class="container custome-container">
+    <#--面包屑: 首页 > 友情链接-->
     <nav class="breadcrumb">
         <a class="crumbs" title="返回首页" href="${config.siteUrl}" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-home"></i>首页</a>
         <i class="fa fa-angle-right"></i>友情链接
     </nav>
+
     <div class="row">
+        <#--宏: hitokoto、QQ、邮箱、微博-->
         <@blogHeader title="友情链接"></@blogHeader>
         <div class="col-sm-12 blog-main">
             <div class="blog-body expansion">
-                <#--<h5 class="legend-title">简单的要求<small> - 简单点，说话的方式简单点</small></h5>-->
                 <h4 class="bottom-line"><i class="fa fa-coffee fa-fw"></i><strong>简单的要求</strong><small> - 简单点，说话的方式简单点</small></h4>
                 <div class="link-info">
                     <ul class="list-unstyled">
@@ -36,8 +38,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 zhyd-container">
-            <div class="zhyd-box zhyd-os">
+
+        <#--取链记录-->
+        <div class="col-sm-12 ccm-container">
+            <div class="ccm-box ccm-os">
                 <div class="category">
                     <div><i class="fa fa-unlink fa-fw fa-2x"></i>取链记录</div>
                 </div>
@@ -66,9 +70,11 @@
                 </div>
             </div>
         </div>
+
+        <#--首页友链-->
         <#if link.indexList>
-        <div class="col-sm-12 zhyd-container">
-            <div class="zhyd-box zhyd-os">
+        <div class="col-sm-12 ccm-container">
+            <div class="ccm-box ccm-os">
                 <div class="category">
                     <div><i class="fa fa-link fa-fw fa-2x"></i>首页友链 <small>(排名不分前后)</small></div>
                 </div>
@@ -88,9 +94,11 @@
             </div>
         </div>
         </#if>
+
+        <#--内页友链-->
         <#if link.insideList>
-        <div class="col-sm-12 zhyd-container">
-            <div class="zhyd-box zhyd-os">
+        <div class="col-sm-12 ccm-container">
+            <div class="ccm-box ccm-os">
                 <div class="category">
                     <div><i class="fa fa-link fa-fw fa-2x"></i>内页友链 <small>(排名不分前后)</small></div>
                 </div>
@@ -117,7 +125,8 @@
         </div>-->
     </div>
 </div>
-<!--评论弹框-->
+
+<#--评论弹框-->
 <div class="modal fade bs-example-modal-sm" id="auto-link-modal" tabindex="-1" role="dialog" aria-labelledby="auto-link-modal-label">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -16,7 +16,7 @@
                         <div class="about-main">
                             <div class="about-img"><a href="${config.staticWebSite}/img/wxgzh_400px.png" class="showImage" title="微信公众号"><img src="${config.staticWebSite}/img/wxgzh_400px.png" alt="微信公众号"></a></div>
                             <div class="about-name">${config.siteName}</div>
-                            <div class="about-the">${config.siteDesc?if_exists}</div>
+                            <#--<div class="about-the">${config.siteDesc?if_exists}</div>-->
                         </div>
                         <div class="clear"></div>
                         <!-- 方案一：图标展示 -->
@@ -47,6 +47,8 @@
             </div>
         </div>
     </#if>
+
+    <#--本文目录-->
     <div class="sidebar-module article-module hide" style="top: 0;">
         <h5 class="sidebar-title"><i class="fa fa-book icon"></i><strong>本文目录</strong> <i class="fa fa-close pull-right close-article-menu hide pointer"></i></h5>
         <div id="article-menu">
@@ -54,6 +56,8 @@
             </ul>
         </div>
     </div>
+
+    <#--文章标签-->
     <div class="sidebar-module">
         <h5 class="sidebar-title"><i class="fa fa-tags icon"></i><strong>文章标签</strong></h5>
         <ul class="list-unstyled list-inline">
@@ -70,6 +74,8 @@
             </@ccmTag>
         </ul>
     </div>
+
+    <#--近期评论-->
     <@ccmTag method="recentComments" pageSize="10">
         <#if recentComments?? && recentComments?size gt 0>
             <div class="sidebar-module">
@@ -87,6 +93,8 @@
             </div>
         </#if>
     </@ccmTag>
+
+    <#--近期文章、站长推荐、随机文章-->
     <div class="sidebar-module">
         <ul class="nav nav-tabs sidebar-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list"></i>近期文章</a></li>
@@ -94,6 +102,7 @@
             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-hand-peace-o"></i>随机文章</a></li>
         </ul>
         <div class="tab-content">
+            <#--近期文章-->
             <div role="tabpanel" class="tab-pane active" id="profile">
                 <ol class="list-unstyled">
                     <@articleTag method="recentArticles" pageSize="10">
@@ -110,6 +119,7 @@
                     </@articleTag>
                 </ol>
             </div>
+            <#--站长推荐-->
             <div role="tabpanel" class="tab-pane" id="home">
                 <ol class="list-unstyled">
                     <@articleTag method="recommendedList" pageSize="10">
@@ -126,6 +136,7 @@
                     </@articleTag>
                 </ol>
             </div>
+            <#--随机文章-->
             <div role="tabpanel" class="tab-pane" id="messages">
                 <ol class="list-unstyled">
                     <@articleTag method="randomList" pageSize="10">
@@ -145,6 +156,8 @@
         </div>
     </div>
     <div class="clear"></div>
+
+    <#--网站信息-->
     <div class="sidebar-module">
         <h5 class="sidebar-title"><i class="fa fa-info icon"></i><strong>网站信息</strong></h5>
         <ul class="ul-default">

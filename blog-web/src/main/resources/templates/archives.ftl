@@ -40,14 +40,17 @@
 </@header>
 
 <div class="container custome-container">
+    <#--面包屑: 首页 > 归档目录-->
     <nav class="breadcrumb">
         <a class="crumbs" title="返回首页" href="${config.siteUrl}" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-home"></i>首页</a> <i
             class="fa fa-angle-right"></i>归档目录
     </nav>
+
     <div class="row">
         <div class="col-sm-8 blog-main">
             <div class="blog-body overflow-initial fade-in">
                 <div class="blog-info overflow-initial">
+
                     <div class="bottom-line">
                         <h1 class="blog-info-title">
                             <strong>文章归档目录</strong>
@@ -57,7 +60,9 @@
                         </@ccmTag>
                         <p class="blog-description hitokoto"></p>
                     </div>
-                    <div class="blog-info-body">
+
+                    <#--归档内容-->
+                    <div class="blog-info-body" style="margin-bottom:12px;">
                         <div class="archives-box overflow-initial">
                             <#list archives['years'] as year>
                                 <h3 class="year pointer">${year}年 </h3>
@@ -85,8 +90,9 @@
                             </#list>
                         </div>
                     </div>
+
                     <div class="article-footer overflow-initial">
-                        <span class="blog-description hitokoto num"></span>
+                        <span class="blog-description-hitokoto hitokoto num"></span>
                     </div>
                 </div>
             </div>

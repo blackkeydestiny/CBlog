@@ -62,7 +62,7 @@
 </#macro>
 
 
-<#-- blog-header -->
+<#-- blog-header : 关于、友情链接、留言板-->
 <#macro blogHeader title="Header" weiboName="@我的微博">
     <div class="col-sm-12 blog-main">
         <div class="blog-header">

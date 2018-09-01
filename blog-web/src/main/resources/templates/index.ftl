@@ -6,7 +6,10 @@
 </@header>
 
 <div class="container custome-container">
+    <#--显示系统维护信息-->
     <@prompt></@prompt>
+
+    <#--系统通知    -->
     <nav class="breadcrumb">
         <div class="notify"><i class="fa fa-volume-up"></i></div>
         <div id="scrolldiv">
@@ -25,19 +28,20 @@
             </div>
         </div>
     </nav>
+
     <div class="row">
         <div class="col-sm-8 blog-main">
             <@articleTag method="recommendedList" pageSize="8">
                 <#if recommendedList?exists && (recommendedList?size > 0)>
                 <div class="blog-body expansion" style="padding: 0;">
                     <div id="myCarousel" class="carousel slide" style="height:300px;">
-                        <!-- 轮播（Carousel）指标 -->
+                        <#-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
                             <#list recommendedList as item>
                             <li data-target="#myCarousel" data-slide-to="${item_index}" class="${(item_index == 0)?string('active','')}"></li>
                             </#list>
                         </ol>
-                        <!-- 轮播（Carousel）项目 -->
+                        <#-- 轮播（Carousel）项目 -->
                         <div class="carousel-inner">
                             <#list recommendedList as item>
                             <div class="item ${(item_index == 0)?string('active','')}">
@@ -49,7 +53,7 @@
                             </div>
                             </#list>
                         </div>
-                        <!-- 轮播（Carousel）导航 -->
+                        <#-- 轮播（Carousel）导航 -->
                         <a class="left carousel-control hide" href="#myCarousel" role="button" data-slide="prev">
                             <span class="fa fa-angle-left fa-fw fa-3x" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
@@ -62,6 +66,8 @@
                 </div>
                 </#if>
             </@articleTag>
+
+            <#--文章列表-->
             <#if page.list?exists && (page.list?size > 0)>
                 <#list page.list as item>
                     <article class="fade-in">
@@ -104,6 +110,7 @@
                 </#list>
                 <@pageBar></@pageBar>
             <#else >
+                <#--文章列表为空时显示这个部分-->
                 <article class="fade-in" style="height: auto">
                     <div class="rows">
                         <div class="col-md-10 col-sm-12">
@@ -114,6 +121,8 @@
                             <img src="${config.staticWebSite}/img/wrong.gif" class="center-block" alt="惩罚我" style="width: 110px;margin-top: -10px;">
                         </div>
                     </div>
+
+                    <#--搜索-->
                     <form action="/" method="post" class="form-horizontal searchForm">
                         <input type="hidden" name="pageNumber" value="1">
                         <div class="input-group">
@@ -140,6 +149,8 @@
         <#include "layout/sidebar.ftl"/>
     </div>
 </div>
+
+<#--友情链接-->
 <section class="links index-links">
     <ul class="list-unstyled list-inline">
         <#if indexLinkList?exists && (indexLinkList?size > 0)>

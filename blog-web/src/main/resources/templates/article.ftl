@@ -36,15 +36,18 @@
 <img src="${article.coverImage?if_exists}" onerror="this.src='${config.staticWebSite}/img/default_article_cover.jpg'" style="display: none;" id="cover-img">
 </#if>
 <div class="container custome-container">
+    <#--面包屑: 首页 > 正文-->
     <nav class="breadcrumb">
         <a class="crumbs" title="返回首页" href="${config.siteUrl}" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-home"></i>首页</a>
         <i class="fa fa-angle-right"></i>
         <a href="${config.siteUrl}/type/${article.typeId}" title="点击查看该分类文章" data-toggle="tooltip" data-placement="bottom">${article.type.name}</a>
         <i class="fa fa-angle-right"></i>正文
     </nav>
+
     <div class="row">
         <div class="col-sm-8 blog-main">
             <div class="blog-body overflow-initial fade-in">
+                <#--原创、转载、时间、评论、浏览-->
                 <div class="article-flag">
                     <#if article.original?string('true','false') == 'true'>
                         <span class="article-blockquote article-blockquote-green"></span>
@@ -65,6 +68,8 @@
                         </ul>
                     </div>
                 </div>
+
+                <#--正文-->
                 <div class="blog-info overflow-initial">
                     <div class="bottom-line">
                         <h1 class="blog-info-title" style="text-align:center">
@@ -103,6 +108,8 @@
                     <div class="article-footer overflow-initial">所属分类：<a href="${config.siteUrl}/type/${article.typeId}" data-original-title="点击查看${article.type.name}分类的文章" data-toggle="tooltip" data-placement="bottom">${article.type.name}</a></div>
                 </div>
             </div>
+
+            <#--文章标签和版权声明-->
             <div class="blog-body article-tag">
                 <div class="cat">
                     <ul class="list-unstyled">
@@ -123,11 +130,15 @@
                     </ul>
                 </div>
             </div>
+
+            <#--广告-->
             <div class="blog-body">
                 <a href="https://www.ucloud.cn/site/active/gift.html" target="_blank" rel="external nofollow">
                     <img src="${config.staticWebSite}/img/ad/ucloud_sale1.png" alt="全民云计算" class="img-responsive">
                 </a>
             </div>
+
+            <#--分页-->
             <div class="blog-body prev-next">
                 <nav class="nav-single wow" data-wow-delay="0.3s">
                     <#if other.prev>
@@ -159,6 +170,7 @@
                     <div class="clear"></div>
                 </nav>
             </div>
+
             <#-- 热门推荐 -->
             <div class="blog-body clear overflow-initial">
                 <h4 class="bottom-line"><i class="fa fa-fire icon"></i><strong>热门推荐</strong></h4>
@@ -201,6 +213,7 @@
                 </ul>
                 <div class="clear"></div>
             </div>
+
             <#-- 相关文章 -->
             <div class="blog-body clear overflow-initial">
                 <h4 class="bottom-line"><i class="fa fa-google-wallet icon"></i><strong>相关文章</strong></h4>
@@ -221,6 +234,7 @@
                 </ul>
                 <div class="clear"></div>
             </div>
+
             <#--评论-->
             <#if article.comment>
                 <div class="blog-body clear overflow-initial expansion">

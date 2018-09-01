@@ -32,10 +32,12 @@
 </@header>
 
 <div class="container custome-container">
+    <#--面包屑: 首页 > 友情链接-->
     <nav class="breadcrumb">
         <a class="crumbs" title="返回首页" href="${config.siteUrl}" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-home"></i>首页</a>
         <i class="fa fa-angle-right"></i>留言板
     </nav>
+
     <div class="row">
         <@blogHeader title="留言板"></@blogHeader>
         <div class="col-sm-12 blog-main">
@@ -49,6 +51,8 @@
                 </div>
             </div>
         </div>
+
+        <#--评论区-->
         <#if config.comment>
             <div class="col-sm-12 blog-main">
                 <div class="blog-body expansion">
@@ -65,7 +69,6 @@
 
 <@footer>
     <script src="https://v1.hitokoto.cn/?encode=js&c=d&select=%23hitokoto" defer></script>
-
     <script type="text/javascript" src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 	<script type="text/javascript" src="https://cdn.bootcss.com/simplemde/1.11.2/simplemde.min.js"></script>
 </@footer>
