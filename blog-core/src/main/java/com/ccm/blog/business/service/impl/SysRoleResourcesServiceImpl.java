@@ -52,8 +52,14 @@ import java.util.List;
  */
 @Service
 public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
+//    @Autowired
+//    private SysRoleResourcesMapper resourceMapper;
+
+    private final SysRoleResourcesMapper resourceMapper;
     @Autowired
-    private SysRoleResourcesMapper resourceMapper;
+    public SysRoleResourcesServiceImpl(SysRoleResourcesMapper resourceMapper){
+        this.resourceMapper = resourceMapper;
+    }
 
     /**
      * 保存一个实体，null的属性不会保存，会使用数据库默认值

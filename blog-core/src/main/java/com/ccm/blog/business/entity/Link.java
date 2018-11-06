@@ -22,9 +22,9 @@ package com.ccm.blog.business.entity;
 import com.ccm.blog.persistence.beans.SysLink;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ccm.blog.business.enums.LinkSourceEnum;
-import com.ccm.blog.persistence.beans.SysLink;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+//import org.hibernate.validator.constraints.NotEmpty; // Deprecated. use the standard javax.validation.constraints.NotEmpty constraint instead
+import  javax.validation.constraints.NotEmpty;
 import org.springframework.util.StringUtils;
 
 import javax.validation.constraints.Pattern;

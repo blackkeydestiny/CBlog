@@ -28,7 +28,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.validation.MessageCodesResolver;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+//import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  *
@@ -40,7 +41,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 @Order(0)
-public class ValidatorConfig extends WebMvcConfigurerAdapter {
+public class ValidatorConfig implements WebMvcConfigurer {
 
     @Override
     public Validator getValidator() {

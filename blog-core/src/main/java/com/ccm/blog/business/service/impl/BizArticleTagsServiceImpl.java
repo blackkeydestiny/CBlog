@@ -51,8 +51,14 @@ import java.util.List;
 @Service
 public class BizArticleTagsServiceImpl implements BizArticleTagsService {
 
+//    @Autowired
+//    private BizArticleTagsMapper bizArticleTagsMapper;
+
+    private final BizArticleTagsMapper bizArticleTagsMapper;
     @Autowired
-    private BizArticleTagsMapper bizArticleTagsMapper;
+    public BizArticleTagsServiceImpl(BizArticleTagsMapper bizArticleTagsMapper){
+        this.bizArticleTagsMapper = bizArticleTagsMapper;
+    }
 
     /**
      * 分页查询

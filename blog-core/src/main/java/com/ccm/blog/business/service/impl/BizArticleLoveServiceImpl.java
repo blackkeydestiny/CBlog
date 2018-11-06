@@ -50,8 +50,14 @@ import java.util.List;
 @Service
 public class BizArticleLoveServiceImpl implements BizArticleLoveService{
 
+//    @Autowired
+//    private BizArticleLoveMapper bizArticleLoveMapper;
+
+    private final BizArticleLoveMapper bizArticleLoveMapper;
     @Autowired
-    private BizArticleLoveMapper bizArticleLoveMapper;
+    public BizArticleLoveServiceImpl(BizArticleLoveMapper bizArticleLoveMapper){
+        this.bizArticleLoveMapper = bizArticleLoveMapper;
+    }
 
     /**
      * 分页查询

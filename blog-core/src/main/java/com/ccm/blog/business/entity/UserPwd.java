@@ -22,7 +22,8 @@ package com.ccm.blog.business.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+//import org.hibernate.validator.constraints.NotEmpty;  // Deprecated. use the standard javax.validation.constraints.NotEmpty constraint instead
+import  javax.validation.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 

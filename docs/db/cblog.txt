@@ -1,0 +1,235 @@
+1、切换到相应盘符
+2、执行wget命令，下载rpm包
+3、安装
+4、启动
+
+
+JAVA_HOME=/usr/local/installs/java/jdk
+JRE_HOME=/usr/local/installs/java/jdk/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+export JAVA_HOME JRE_HOME PATH CLASSPATH
+
+source /etc/profile
+
+update user set password=PASSWORD("ccm123456") where User='root';
+
+update user set host = '%' where user = 'root';
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION
+FLUSH PRIVILEGES
+
+#设置默认字符集
+loose-default-character-set = utf8
+#设置服务器字符集
+character_set_server = utf8
+#设置最大连接数
+max_connections = 200
+#设置默认数据库引擎
+default-storage-engine = InnoDB
+
+[client]
+#设置客户端默认字符集
+loose-default-character-set = utf8
+
+{"status":2,
+"message":"Request Parameter Error:ip illegal","content":{"point":{"x":"-0.0065045554344677","y":"-0.00600420431444"}}}
+
+cp -r /var/lib/mysql /data
+ln -s /data/mysql/mysql.sock /var/lib/mysql/mysql.sock
+
+CREATE USER 'ccm'@'localhost' IDENTIFIED BY 'ccm123456';
+
+INSERT INTO `mysql`.`user`(`Host`, `User`, `Password`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv`, `Create_view_priv`, `Show_view_priv`, `Create_routine_priv`, `Alter_routine_priv`, `Create_user_priv`, `Event_priv`, `Trigger_priv`, `Create_tablespace_priv`, `ssl_type`, `ssl_cipher`, `x509_issuer`, `x509_subject`, `max_questions`, `max_updates`, `max_connections`, `max_user_connections`, `plugin`, `authentication_string`, `password_expired`) VALUES ('10-8-105-63', '', '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', 0, 0, 0, 0, 'mysql_native_password', NULL, 'N');
+
+
+ln -s /usr/local/projects/dblogs/blog-admin.jar /etc/init.d/blogAdmin
+ln -s /usr/local/projects/dblogs/blog-web.jar /etc/init.d/blogWeb
+
+chmod +x blog-admin.jar
+chmod +x blog-web.jar
+chmod +x /etc/init.d/blogAdmin
+chmod +x /etc/init.d/blogWeb
+
+echo $! > /var/run/blog-admin.pid
+
+Ngnix
+启动服务：service nginx start
+停止服务：service nginx stop
+重启服务：service nginx reload
+
+
+
+
+cp /data/redis/redis-3.2.9/utils/redis_init_script /etc/rc.d/init.d/redis
+
+
+Failed to load resource: the server responded with a status of 404 ()
+
+ccm.core.js:1 Mixed Content: The page at 'https://www.chuming.online/error/404' was loaded over HTTPS, 
+but attempted to connect to the insecure WebSocket endpoint 'ws://admin.chuming.online/websocket'. 
+This request has been blocked; this endpoint must be available over WSS.
+
+http://admin.chuming.online/notice
+
+https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js
+
+
+[WARNING] Some problems were encountered while building the effective model for com.ccm:blog-core:jar:2.0.1.Beta
+[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
+[WARNING] 
+
+location  ^~  /websocket {
+     proxy_pass http://[改为自己的host]/websocket;
+     proxy_redirect off;
+     proxy_set_header X-Real-IP $remote_addr;
+     proxy_set_header Host $host:$server_port;
+     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+     # 声明支持websocket
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection "Upgrade";
+}
+
+Divisiond4180722
+
+
+server {
+		listen       80;
+		server_name  www.chuming.online chuming.online;
+		rewrite ^/(.*) https://$server_name$request_uri? permanent;    # force redirect http to https
+		return 301 https://$server_name$request_uri;
+		
+		location ~ ^/favicon\.ico$ {
+			root    /usr/local/projects/dblogs/img;
+		}
+	}
+	server {
+		listen       443 ssl;
+		server_name  www.chuming.online chuming.online;
+		ssl_certificate      /usr/local/nginx/cert/214899492530009.pem;
+		ssl_certificate_key  /usr/local/nginx/cert/214899492530009.key;
+		ssl_session_cache    shared:SSL:1m;
+		ssl_session_timeout  5m;
+		ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+		#ssl_ciphers AESGCM:ALL:!DH:!EXPORT:!RC4:+HIGH:!MEDIUM:!LOW:!aNULL:!eNULL;
+		ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+		ssl_prefer_server_ciphers on;
+		proxy_intercept_errors on;
+        recursive_error_pages on;
+		
+		location / {
+                rewrite_by_lua '
+                        ngx.exec("/proxy-to" .. ngx.var.request_uri)
+                ';
+        }
+		
+		location ~ /proxy-to/([^/]+)(.*) {
+			proxy_pass  http://localhost:8443;
+			proxy_redirect off;      
+			#设置主机头和客户端真实地址，以便服务器获取客户端真实IP
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+			error_page 302 = @error_page_302;
+		}  
+		
+		location @error_page_302 {
+                rewrite_by_lua '
+                        local _, _, upstream_http_location = string.find(ngx.var.upstream_http_location, "^http:/(.*)$")
+                        ngx.header["zzzz"] = "/proxy-to" .. upstream_http_location
+                        ngx.exec("/proxy-to" .. upstream_http_location);
+                ';
+        }
+		
+		location ~ ^/favicon\.ico$ {
+			root    /usr/local/projects/dblogs/img;
+		}
+		
+		error_page 404 /404.html;
+			location = /40x.html {
+		}
+
+		error_page 500 502 503 504 /50x.html;
+			location = /50x.html {
+		}		
+	}	
+
+
+CNZZDATA1274381517=517037489-1534834830-%7C1534834830; UM_distinctid=1655b48e3ecb72-08d765687e5887-784a5037-17ed82-1655b48e3ee2c2
+Hm_lpvt_efa8a312aef0c2214fd566b50ef6ff7a=1534840927; Hm_lvt_efa8a312aef0c2214fd566b50ef6ff7a=1534834724,1534835897; JSESSIONID=682118B7189BFD1381B96434E0D07257
+CNZZDATA1273597307=225401665-1534836382-%7C1534836382; UM_distinctid=1655b60911a12c3-0084edb64f403b-784a5037-17ed82-1655b60911c6f9
+
+
+2018-08-21 14:03:11 [com.ccm.blog.util.RestClientUtil:107] INFO  - true
+2018-08-21 14:03:11 [com.ccm.blog.util.RestClientUtil:123] INFO  - Redirect to URL : http://i.qq.com?s_url=http%3A%2F%2Fusers.qzone.qq.com%2Ffcg-bin%2Fcgi_get_portrait.fcg%3Fuins%3D1973518337
+2018-08-21 14:03:11 [com.ccm.blog.util.RestClientUtil:140] INFO  - RestClientUtil url: https://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins=1973518337, response: 302 : Found
+2018-08-21 14:03:11 [com.ccm.blog.controller.RestApiController:99] INFO  - json ========
+
+
+
+2018-08-22 13:16:33 [org.apache.juli.logging.DirectJDKLog:182] ERROR - No error handling configured for [com.ccm.blog.core.websocket.server.ZydWebsocketServer] and the following error occurred
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1250)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1190)
+	at org.apache.tomcat.websocket.server.WsFrameServer.onDataAvailable(WsFrameServer.java:72)
+	at org.apache.tomcat.websocket.server.WsFrameServer.doOnDataAvailable(WsFrameServer.java:171)
+	at org.apache.tomcat.websocket.server.WsFrameServer.notifyDataAvailable(WsFrameServer.java:151)
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.upgradeDispatch(WsHttpUpgradeHandler.java:148)
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.dispatch(UpgradeProcessorInternal.java:54)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:53)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+	
+	
+	2018-08-22 15:33:58 [org.apache.juli.logging.DirectJDKLog:182] INFO  - Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:426)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:687)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+	
+	
+	
+	
+1、mysql在centos我登录
+1.关闭mysql
+   # service mysqld stop
+2.屏蔽权限
+   # mysqld_safe --skip-grant-table
+   屏幕出现： Starting demo from .....
+3.新开起一个终端输入
+   # mysql -u root mysql
+   mysql> UPDATE user SET Password=PASSWORD('ccm123456') where USER='root';
+   mysql> FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误
+   mysql> \q
+
+
+2、运行特定ip访问云主机的mysql
+GRANT ALL PRIVILEGES ON *.* TO '192.168.3.11'@'%' IDENTIFIED BY 'ccm123456' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

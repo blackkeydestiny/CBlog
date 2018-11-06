@@ -50,8 +50,14 @@ import java.util.List;
 @Service
 public class BizTypeServiceImpl implements BizTypeService {
 
+//    @Autowired
+//    private BizTypeMapper bizTypeMapper;
+
+    private final BizTypeMapper bizTypeMapper;
     @Autowired
-    private BizTypeMapper bizTypeMapper;
+    public BizTypeServiceImpl(BizTypeMapper bizTypeMapper){
+        this.bizTypeMapper = bizTypeMapper;
+    }
 
     /**
      * 分页查询

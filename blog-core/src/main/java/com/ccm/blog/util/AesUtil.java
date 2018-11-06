@@ -48,9 +48,9 @@ public class AesUtil {
      * @param content
      *         需要加密的字符串
      * @return 返回Base64转码后的加密数据
-     * @throws Exception
+     * @throws Exception exception
      */
-    public static String encrypt(String passwd, String content) throws Exception {
+     static String encrypt(String passwd, String content) throws Exception {
         // 创建密码器
         Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);
 
@@ -76,7 +76,7 @@ public class AesUtil {
      * @return 返回解密后的数据
      * @throws Exception
      */
-    public static String decrypt(String passwd, String encrypted) throws Exception {
+     static String decrypt(String passwd, String encrypted) throws Exception {
         //实例化
         Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);
 

@@ -31,7 +31,7 @@ import javax.sql.DataSource;
 
 /**
  * 添加数据源的抽象配置，详细实现根据业务定制。
- * Created by yadong.zhang on cn.com.innodev.health.framework.config
+ * Created by chuming.chen on cn.com.innodev.health.framework.config
  * 必备的注解参数<br>
  * <code>@Configuration</code><br>
  * <code>@MapperScan(basePackages = "xxMapper.java所在的包路径", sqlSessionTemplateRef  = "同下方transactionManagerBeanName")</code><br>
@@ -41,6 +41,7 @@ import javax.sql.DataSource;
  * @version 1.0
  * @date 2018/4/16 16:26
  * @since 1.0
+ * @deprecated 暂时没有用到此类
  */
 public abstract class AbstractDataSourceConfig {
 

@@ -64,18 +64,36 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class BizArticleServiceImpl implements BizArticleService {
 
+//    @Autowired
+//    private BizArticleMapper bizArticleMapper;
+//    @Autowired
+//    private BizArticleLoveMapper bizArticleLoveMapper;
+//    @Autowired
+//    private BizArticleLookMapper bizArticleLookMapper;
+//    @Autowired
+//    private BizArticleTagsMapper bizArticleTagsMapper;
+//    @Autowired
+//    private RedisTemplate redisTemplate;
+//    @Autowired
+//    private BizArticleTagsService articleTagsService;
+
+    private final BizArticleMapper bizArticleMapper;
+    private final BizArticleLoveMapper bizArticleLoveMapper;
+    private final BizArticleLookMapper bizArticleLookMapper;
+    private final BizArticleTagsMapper bizArticleTagsMapper;
+    private final RedisTemplate redisTemplate;
+    private final BizArticleTagsService articleTagsService;
+
     @Autowired
-    private BizArticleMapper bizArticleMapper;
-    @Autowired
-    private BizArticleLoveMapper bizArticleLoveMapper;
-    @Autowired
-    private BizArticleLookMapper bizArticleLookMapper;
-    @Autowired
-    private BizArticleTagsMapper bizArticleTagsMapper;
-    @Autowired
-    private RedisTemplate redisTemplate;
-    @Autowired
-    private BizArticleTagsService articleTagsService;
+    public BizArticleServiceImpl(BizArticleMapper bizArticleMapper, BizArticleLoveMapper bizArticleLoveMapper, BizArticleLookMapper bizArticleLookMapper,
+                                 BizArticleTagsMapper bizArticleTagsMapper, RedisTemplate redisTemplate, BizArticleTagsService articleTagsService){
+        this.bizArticleMapper = bizArticleMapper;
+        this.bizArticleLoveMapper = bizArticleLoveMapper;
+        this.bizArticleLookMapper = bizArticleLookMapper;
+        this.bizArticleTagsMapper = bizArticleTagsMapper;
+        this.redisTemplate = redisTemplate;
+        this.articleTagsService = articleTagsService;
+    }
 
     /**
      * 分页查询

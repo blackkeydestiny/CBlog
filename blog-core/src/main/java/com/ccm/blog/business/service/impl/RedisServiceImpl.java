@@ -40,8 +40,14 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RedisServiceImpl implements RedisService {
 
+//    @Autowired
+//    private RedisTemplate redisTemplate;
+
+    private final RedisTemplate redisTemplate;
     @Autowired
-    private RedisTemplate redisTemplate;
+    public RedisServiceImpl(RedisTemplate redisTemplate){
+        this.redisTemplate = redisTemplate;
+    }
 
     @Override
     public <T> void set(String key, T value) {

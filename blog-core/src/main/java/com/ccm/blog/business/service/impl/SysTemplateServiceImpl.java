@@ -51,8 +51,14 @@ import java.util.List;
 @Service
 public class SysTemplateServiceImpl implements SysTemplateService{
 
+//    @Autowired
+//    private SysTemplateMapper sysTemplateMapper;
+
+    private final SysTemplateMapper sysTemplateMapper;
     @Autowired
-    private SysTemplateMapper sysTemplateMapper;
+    public SysTemplateServiceImpl(SysTemplateMapper sysTemplateMapper){
+        this.sysTemplateMapper = sysTemplateMapper;
+    }
 
     /**
      * 分页查询

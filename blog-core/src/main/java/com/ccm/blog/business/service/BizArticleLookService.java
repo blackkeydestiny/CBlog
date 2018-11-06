@@ -41,7 +41,7 @@ public interface BizArticleLookService extends AbstractService<ArticleLook, Inte
      * 分页查询
      *
      * @param vo
-     * @return
+     * @return 文章浏览记录
      */
     PageInfo<ArticleLook> findPageBreakByCondition(ArticleLookConditionVO vo);
 }

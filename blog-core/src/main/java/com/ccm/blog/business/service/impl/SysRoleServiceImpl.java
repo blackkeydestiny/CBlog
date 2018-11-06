@@ -47,8 +47,14 @@ import java.util.*;
 @Service
 public class SysRoleServiceImpl implements SysRoleService {
 
+//    @Autowired
+//    private SysRoleMapper roleMapper;
+
+    private final SysRoleMapper roleMapper;
     @Autowired
-    private SysRoleMapper roleMapper;
+    public SysRoleServiceImpl(SysRoleMapper roleMapper){
+        this.roleMapper = roleMapper;
+    }
 
     /**
      * 获取ztree使用的角色列表

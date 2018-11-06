@@ -50,8 +50,14 @@ import java.util.List;
 @Service
 public class SysUpdateRecordeServiceImpl implements SysUpdateRecordeService{
 
+//    @Autowired
+//    private SysUpdateRecordeMapper sysUpdateRecordeMapper;
+
+    private final SysUpdateRecordeMapper sysUpdateRecordeMapper;
     @Autowired
-    private SysUpdateRecordeMapper sysUpdateRecordeMapper;
+    public SysUpdateRecordeServiceImpl(SysUpdateRecordeMapper sysUpdateRecordeMapper){
+        this.sysUpdateRecordeMapper = sysUpdateRecordeMapper;
+    }
 
     /**
      * 分页查询

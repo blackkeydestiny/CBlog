@@ -53,8 +53,14 @@ import java.util.List;
 @Service
 public class SysNoticeServiceImpl implements SysNoticeService {
 
+//    @Autowired
+//    private SysNoticeMapper sysNoticeMapper;
+
+    private final SysNoticeMapper sysNoticeMapper;
     @Autowired
-    private SysNoticeMapper sysNoticeMapper;
+    public SysNoticeServiceImpl(SysNoticeMapper sysNoticeMapper){
+        this.sysNoticeMapper = sysNoticeMapper;
+    }
 
     /**
      * 分页查询

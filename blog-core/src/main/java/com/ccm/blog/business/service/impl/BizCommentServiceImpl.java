@@ -91,6 +91,7 @@ public class BizCommentServiceImpl implements BizCommentService {
     public PageInfo<Comment> findPageBreakByCondition(CommentConditionVO vo) {
         PageHelper.startPage(vo.getPageNumber(), vo.getPageSize());
         List<BizComment> list = bizCommentMapper.findPageBreakByCondition(vo);
+
         if (CollectionUtils.isEmpty(list)) {
             return null;
         }
@@ -98,9 +99,9 @@ public class BizCommentServiceImpl implements BizCommentService {
         for (BizComment bizComment : list) {
             boList.add(new Comment(bizComment));
         }
-        PageInfo bean = new PageInfo<BizComment>(list);
-        bean.setList(boList);
-        return bean;
+//        PageInfo bean = new PageInfo<>(list);
+//        bean.setList(boList);
+        return new PageInfo<>(boList);
     }
 
     /**

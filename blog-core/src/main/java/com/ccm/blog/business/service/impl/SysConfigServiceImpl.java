@@ -49,8 +49,14 @@ import java.util.Map;
 @Service
 public class SysConfigServiceImpl implements SysConfigService {
 
+//    @Autowired
+//    private SysConfigMapper sysConfigMapper;
+
+    private final SysConfigMapper sysConfigMapper;
     @Autowired
-    private SysConfigMapper sysConfigMapper;
+    public SysConfigServiceImpl(SysConfigMapper sysConfigMapper){
+        this.sysConfigMapper = sysConfigMapper;
+    }
 
     /**
      * 获取系统配置

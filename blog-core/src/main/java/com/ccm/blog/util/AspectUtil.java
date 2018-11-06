@@ -67,7 +67,7 @@ public class AspectUtil {
      *
      * @param point
      *         当前切面执行的方法
-     * @throws NoSuchMethodException
+     * @throws NoSuchMethodException noSuchMethodException
      */
     public static Method getMethod(ProceedingJoinPoint point) throws NoSuchMethodException {
         Signature sig = point.getSignature();
@@ -85,7 +85,7 @@ public class AspectUtil {
      *         额外的参数 （非必选）
      * @param prefix
      *         key前缀 （非必选）
-     * @throws NoSuchMethodException
+     * @throws NoSuchMethodException noSuchMethodException
      */
     public static String getKey(ProceedingJoinPoint point, String extra, String prefix) throws NoSuchMethodException {
         Method currentMethod = AspectUtil.getMethod(point);

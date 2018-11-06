@@ -32,6 +32,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static freemarker.template.Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS;
+
 /**
  * Freemarker模板操作工具类
  *
@@ -96,7 +98,7 @@ public class FreeMarkerUtil {
         }
         Template t = null;
         try {
-            t = new Template("", new StringReader(templateContent), new Configuration());
+            t = new Template("", new StringReader(templateContent), new Configuration(DEFAULT_INCOMPATIBLE_IMPROVEMENTS));
             StringWriter writer = new StringWriter();
             t.process(newMap, writer);
             return writer.toString();

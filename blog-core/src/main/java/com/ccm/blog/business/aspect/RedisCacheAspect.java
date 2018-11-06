@@ -21,8 +21,6 @@ package com.ccm.blog.business.aspect;
 
 import com.ccm.blog.business.annotation.RedisCache;
 import com.ccm.blog.business.service.RedisService;
-import com.ccm.blog.business.annotation.RedisCache;
-import com.ccm.blog.business.service.RedisService;
 import com.ccm.blog.util.AspectUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -50,8 +48,16 @@ public class RedisCacheAspect {
 
     private static final String BIZ_CACHE_PREFIX = "biz_cache_";
 
+    // 属性注入
+    //@Autowired
+    //private RedisService redisService;
+
+    // 构造方法注入
+    private final RedisService redisService;
     @Autowired
-    private RedisService redisService;
+    public RedisCacheAspect(RedisService redisService){
+        this.redisService = redisService;
+    }
 
     @Pointcut(value = "@annotation(com.ccm.blog.business.annotation.RedisCache)")
     public void pointcut() {

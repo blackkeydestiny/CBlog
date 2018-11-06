@@ -58,8 +58,14 @@ import java.util.List;
 @Service
 public class SysUserServiceImpl implements SysUserService {
 
+//    @Autowired
+//    private SysUserMapper sysUserMapper;
+
+    private final SysUserMapper sysUserMapper;
     @Autowired
-    private SysUserMapper sysUserMapper;
+    public SysUserServiceImpl(SysUserMapper sysUserMapper){
+        this.sysUserMapper = sysUserMapper;
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)

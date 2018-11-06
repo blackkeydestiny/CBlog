@@ -58,12 +58,24 @@ import java.util.Map;
 @Service
 public class MailServiceImpl implements MailService {
 
+//    @Autowired
+//    private JavaMailSender javaMailSender;
+//    @Autowired
+//    private SysTemplateService templateService;
+//    @Autowired
+//    private SysConfigService configService;
+
+    private final JavaMailSender javaMailSender;
+    private final SysTemplateService templateService;
+    private final SysConfigService configService;
+
     @Autowired
-    private JavaMailSender javaMailSender;
-    @Autowired
-    private SysTemplateService templateService;
-    @Autowired
-    private SysConfigService configService;
+    public MailServiceImpl(JavaMailSender javaMailSender, SysTemplateService templateService, SysConfigService configService){
+        this.javaMailSender = javaMailSender;
+        this.templateService = templateService;
+        this.configService = configService;
+    }
+
 
     @Value("${spring.mail.username}")
     private String from;

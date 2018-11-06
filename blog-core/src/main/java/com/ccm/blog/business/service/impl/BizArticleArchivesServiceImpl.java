@@ -23,8 +23,6 @@ import com.ccm.blog.persistence.beans.BizArticleArchives;
 import com.ccm.blog.persistence.mapper.BizArticleArchivesMapper;
 import com.ccm.blog.business.entity.ArticleArchives;
 import com.ccm.blog.business.service.BizArticleArchivesService;
-import com.ccm.blog.persistence.beans.BizArticleArchives;
-import com.ccm.blog.persistence.mapper.BizArticleArchivesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -47,8 +45,14 @@ import java.util.Map;
 @Service
 public class BizArticleArchivesServiceImpl implements BizArticleArchivesService {
 
+//    @Autowired
+//    private BizArticleArchivesMapper articleArchivesMapper;
+
+    private final BizArticleArchivesMapper articleArchivesMapper;
     @Autowired
-    private BizArticleArchivesMapper articleArchivesMapper;
+    public BizArticleArchivesServiceImpl(BizArticleArchivesMapper articleArchivesMapper){
+        this.articleArchivesMapper = articleArchivesMapper;
+    }
 
     @Override
     public Map<String, List> listArchives() {

@@ -58,18 +58,31 @@ import java.util.*;
 @Service
 public class SysLinkServiceImpl implements SysLinkService {
 
+//    @Autowired
+//    private SysLinkMapper sysLinkMapper;
+//    @Autowired
+//    private MailService mailService;
+//    @Autowired
+//    private SysConfigService configService;
+
+
+    private final SysLinkMapper sysLinkMapper;
+    private final MailService mailService;
+    private final SysConfigService configService;
+
     @Autowired
-    private SysLinkMapper sysLinkMapper;
-    @Autowired
-    private MailService mailService;
-    @Autowired
-    private SysConfigService configService;
+    public SysLinkServiceImpl(SysLinkMapper sysLinkMapper, MailService mailService, SysConfigService configService){
+        this.sysLinkMapper = sysLinkMapper;
+        this.mailService = mailService;
+        this.configService = configService;
+    }
+
 
     /**
      * 分页查询
      *
-     * @param vo
-     * @return
+     * @param vo LinkConditionVO
+     * @return Link's PageInfo
      */
     @Override
     public PageInfo<Link> findPageBreakByCondition(LinkConditionVO vo) {
@@ -90,7 +103,7 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 查询可在首页显示的友情链接列表
      *
-     * @return
+     * @return Link's list
      */
     @Override
     @RedisCache
@@ -104,7 +117,7 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 查询可在内页显示的友情链接列表
      *
-     * @return
+     * @return Link's list
      */
     @Override
     @RedisCache
@@ -118,7 +131,7 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 查询已禁用的友情链接列表
      *
-     * @return
+     * @return Link's list
      */
     @Override
     @RedisCache
@@ -133,7 +146,7 @@ public class SysLinkServiceImpl implements SysLinkService {
      * 分组获取所有连接
      * {indexList:首页显示,insideList:内页,disableList:禁用}
      *
-     * @return
+     * @return Link's map
      */
     @Override
     @RedisCache
@@ -154,8 +167,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 自动添加友链
      *
-     * @param link
-     * @return
+     * @param link Link
+     * @return false or true
      */
     @Override
     @RedisCache(flush = true)
@@ -197,8 +210,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 保存一个实体，null的属性不会保存，会使用数据库默认值
      *
-     * @param entity
-     * @return
+     * @param entity Link
+     * @return Link
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -216,7 +229,7 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，另外该接口限制实体包含id属性并且必须为自增列
      *
-     * @param entities
+     * @param entities Link's list
      */
     @Override
     @RedisCache(flush = true)
@@ -236,8 +249,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据主键字段进行删除，方法参数必须包含完整的主键属性
      *
-     * @param primaryKey
-     * @return
+     * @param primaryKey long
+     * @return false or true
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -249,8 +262,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据主键更新实体全部字段，null值会被更新
      *
-     * @param entity
-     * @return
+     * @param entity Link
+     * @return false or true
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -266,8 +279,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据主键更新属性不为null的值
      *
-     * @param entity
-     * @return
+     * @param entity Link
+     * @return false or true
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -283,8 +296,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
      *
-     * @param primaryKey
-     * @return
+     * @param primaryKey  primary Key
+     * @return Link
      */
     @Override
     public Link getByPrimaryKey(Long primaryKey) {
@@ -296,8 +309,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
      *
-     * @param entity
-     * @return
+     * @param entity Link
+     * @return Link
      */
     @Override
     @RedisCache
@@ -310,8 +323,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
      *
-     * @param url
-     * @return
+     * @param url url
+     * @return Link
      */
     @Override
     public Link getOneByUrl(String url) {
@@ -323,7 +336,7 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 查询全部结果，listByEntity(null)方法能达到同样的效果
      *
-     * @return
+     * @return Link's list
      */
     @Override
     @RedisCache
@@ -343,8 +356,8 @@ public class SysLinkServiceImpl implements SysLinkService {
     /**
      * 根据实体中的属性值进行查询，查询条件使用等号
      *
-     * @param entity
-     * @return
+     * @param entity Link
+     * @return Link's list
      */
     @Override
     @RedisCache

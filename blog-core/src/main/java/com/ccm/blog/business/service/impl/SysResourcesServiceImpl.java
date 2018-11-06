@@ -50,8 +50,14 @@ import java.util.*;
 @Service
 public class SysResourcesServiceImpl implements SysResourcesService {
 
+//    @Autowired
+//    private SysResourceMapper resourceMapper;
+
+    private final SysResourceMapper resourceMapper;
     @Autowired
-    private SysResourceMapper resourceMapper;
+    public SysResourcesServiceImpl(SysResourceMapper resourceMapper){
+        this.resourceMapper = resourceMapper;
+    }
 
     /**
      * 分页查询

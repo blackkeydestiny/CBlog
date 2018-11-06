@@ -42,12 +42,8 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public abstract class AbstractDO implements Serializable {
-    /**
-     * @fieldName: serialVersionUID
-     * @fieldType: long
-     */
-    private static final long serialVersionUID = 5088697673359856350L;
 
+    private static final long serialVersionUID = 5088697673359856350L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

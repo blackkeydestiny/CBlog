@@ -50,14 +50,20 @@ import java.util.List;
 @Service
 public class BizArticleLookServiceImpl implements BizArticleLookService {
 
+//    @Autowired
+//    private BizArticleLookMapper bizArticleLookMapper;
+
+    private final BizArticleLookMapper bizArticleLookMapper;
     @Autowired
-    private BizArticleLookMapper bizArticleLookMapper;
+    public BizArticleLookServiceImpl(BizArticleLookMapper bizArticleLookMapper){
+        this.bizArticleLookMapper = bizArticleLookMapper;
+    }
 
     /**
      * 分页查询
      *
-     * @param vo
-     * @return
+     * @param vo ArticleLookConditionVO
+     * @return ArticleLook's PageInfo
      */
     @Override
     public PageInfo<ArticleLook> findPageBreakByCondition(ArticleLookConditionVO vo) {
@@ -78,8 +84,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 保存一个实体，null的属性不会保存，会使用数据库默认值
      *
-     * @param entity
-     * @return
+     * @param entity ArticleLook
+     * @return ArticleLook
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -94,7 +100,7 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，另外该接口限制实体包含id属性并且必须为自增列
      *
-     * @param entities
+     * @param entities ArticleLook's List
      */
     @Override
     public void insertList(List<ArticleLook> entities) {
@@ -111,8 +117,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 根据主键字段进行删除，方法参数必须包含完整的主键属性
      *
-     * @param primaryKey
-     * @return
+     * @param primaryKey primary Key
+     * @return false or true
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -123,8 +129,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 根据主键更新实体全部字段，null值会被更新
      *
-     * @param entity
-     * @return
+     * @param entity ArticleLook
+     * @return false or true
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -137,8 +143,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 根据主键更新属性不为null的值
      *
-     * @param entity
-     * @return
+     * @param entity ArticleLook
+     * @return false or true
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -151,8 +157,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
      *
-     * @param primaryKey
-     * @return
+     * @param primaryKey primary Key
+     * @return ArticleLook
      */
     @Override
     public ArticleLook getByPrimaryKey(Integer primaryKey) {
@@ -164,8 +170,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
      *
-     * @param entity
-     * @return
+     * @param entity ArticleLook
+     * @return ArticleLook
      */
     @Override
     public ArticleLook getOneByEntity(ArticleLook entity) {
@@ -177,7 +183,7 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 查询全部结果，listByEntity(null)方法能达到同样的效果
      *
-     * @return
+     * @return ArticleLook's list
      */
     @Override
     public List<ArticleLook> listAll() {
@@ -196,8 +202,8 @@ public class BizArticleLookServiceImpl implements BizArticleLookService {
     /**
      * 根据实体中的属性值进行查询，查询条件使用等号
      *
-     * @param entity
-     * @return
+     * @param entity ArticleLook
+     * @return ArticleLook's list
      */
     @Override
     public List<ArticleLook> listByEntity(ArticleLook entity) {
