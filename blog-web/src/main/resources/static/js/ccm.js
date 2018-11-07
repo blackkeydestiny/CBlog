@@ -177,8 +177,8 @@ var wesocketMsgResolver = {
         });
     }
 };
-$(function () {
 
+$(function () {
     $(document).ready(function () {
         NProgress.start();
     });

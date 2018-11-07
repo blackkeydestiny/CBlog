@@ -37,7 +37,7 @@ public class WebSocketConfig {
 
     /**
      * ServerEndpointExporter会自动注册使用了@ServerEndpoint注解声明的Websocket endpoint
-     * @return
+     * @return serverEndpointExporter
      */
     @Bean
     public ServerEndpointExporter serverEndpointExporter() {

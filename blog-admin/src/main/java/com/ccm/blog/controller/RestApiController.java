@@ -109,7 +109,7 @@ public class RestApiController {
     /**
      * 发送消息通知
      *
-     * @return
+     * @return message
      */
     @RequiresPermissions("notice")
     @PostMapping("/notice")

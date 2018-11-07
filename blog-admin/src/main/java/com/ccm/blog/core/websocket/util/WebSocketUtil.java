@@ -55,7 +55,7 @@ public class WebSocketUtil {
      *         消息类型
      * @param content
      *         消息正文
-     * @return
+     * @return message
      */
     private static String generateMsg(String type, String content) {
         return String.format("{\"fun\": \"%s\", \"msg\":\"%s\"}", type, content);
@@ -89,7 +89,6 @@ public class WebSocketUtil {
      *         消息内容
      * @param session
      *         客户端session
-     * @throws IOException
      */
     private static void sendMessage(String message, Session session) {
         try {
@@ -106,7 +105,6 @@ public class WebSocketUtil {
      *         消息内容
      * @param sessionSet
      *         客户端session列表
-     * @throws IOException
      */
     private static void broadcast(String message, Set<Session> sessionSet) {
         if (CollectionUtils.isEmpty(sessionSet)) {

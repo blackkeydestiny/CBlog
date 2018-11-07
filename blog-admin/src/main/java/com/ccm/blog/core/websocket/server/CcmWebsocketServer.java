@@ -88,7 +88,7 @@ public class CcmWebsocketServer {
     /**
      * 获取在线用户数量
      *
-     * @return
+     * @return 在线用户数量
      */
     public int getOnlineUserCount() {
         return onlineCount.get();
@@ -97,7 +97,7 @@ public class CcmWebsocketServer {
     /**
      * 获取在线用户的会话信息
      *
-     * @return
+     * @return Session
      */
     public CopyOnWriteArraySet<Session> getOnlineUsers() {
         return webSocketSet;

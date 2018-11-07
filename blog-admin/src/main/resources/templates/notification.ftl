@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-</div>
+
 <@footer>
     <script type="text/javascript">
         $("#saveBtn").click(function () {
