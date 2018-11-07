@@ -82,7 +82,7 @@ public class FileUtil {
         return getPrefix(file.getName());
     }
 
-    public static String getPrefix(String fileName) {
+    private static String getPrefix(String fileName) {
         int idx = fileName.lastIndexOf(".");
         int xie = fileName.lastIndexOf("/");
         idx = idx == -1 ? fileName.length() : idx;
@@ -105,7 +105,7 @@ public class FileUtil {
         return fileName.substring(idx);
     }
 
-    public static boolean isPicture(String suffix) {
+    private static boolean isPicture(String suffix) {
         return !StringUtils.isEmpty(suffix) && Arrays.asList(PICTURE_SUFFIXS).contains(suffix.toLowerCase());
     }
 
@@ -114,7 +114,7 @@ public class FileUtil {
         mkdirs(file);
     }
 
-    public static void mkdirs(File file) {
+    private static void mkdirs(File file) {
         if (!file.exists()) {
             if (file.isDirectory()) {
                 file.mkdirs();

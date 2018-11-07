@@ -23,7 +23,6 @@ import com.ccm.blog.persistence.beans.SysConfig;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ccm.blog.business.consts.DateConst;
-import com.ccm.blog.persistence.beans.SysConfig;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -113,6 +112,14 @@ public class Config {
 
     public void setSiteDesc(String siteDesc) {
         this.sysConfig.setSiteDesc(siteDesc);
+    }
+
+    public String getSiteMotto() {
+        return this.sysConfig.getSiteMotto();
+    }
+
+    public void setSiteMotto(String siteMotto) {
+        this.sysConfig.setSiteMotto(siteMotto);
     }
 
     public String getSiteFavicon() {

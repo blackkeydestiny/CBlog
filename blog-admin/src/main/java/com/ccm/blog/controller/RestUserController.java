@@ -51,10 +51,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class RestUserController {
+//    @Autowired
+//    private SysUserService userService;
+//    @Autowired
+//    private SysUserRoleService userRoleService;
+
+    private final SysUserService userService;
+    private final SysUserRoleService userRoleService;
     @Autowired
-    private SysUserService userService;
-    @Autowired
-    private SysUserRoleService userRoleService;
+    public RestUserController(SysUserService userService, SysUserRoleService userRoleService){
+        this.userService = userService;
+        this.userRoleService = userRoleService;
+    }
 
     @RequiresPermissions("users")
     @PostMapping("/list")

@@ -51,10 +51,18 @@ import java.util.Date;
 @Order(1)
 public class ArticleLookAspects {
 
+//    @Autowired
+//    private BizArticleService bizArticleService;
+//    @Autowired
+//    private BizArticleLookService articleLookService;
+
+    private final BizArticleService bizArticleService;
+    private final BizArticleLookService articleLookService;
     @Autowired
-    private BizArticleService bizArticleService;
-    @Autowired
-    private BizArticleLookService articleLookService;
+    public ArticleLookAspects(BizArticleService bizArticleService, BizArticleLookService articleLookService){
+        this.bizArticleService = bizArticleService;
+        this.articleLookService = articleLookService;
+    }
 
     @Pointcut("execution(* com.ccm.blog.controller.RenderController.article(..))")
     public void pointcut() {

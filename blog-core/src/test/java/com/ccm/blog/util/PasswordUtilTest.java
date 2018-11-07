@@ -40,22 +40,21 @@ public class PasswordUtilTest {
         encryptTest("123456", "root");
     }
 
-    public void encryptTest(String password, String salt) throws Exception {
+    private void encryptTest(String password, String salt) throws Exception {
+        System.out.println("加密前密文 : " + password);
         String encrypt = PasswordUtil.encrypt(password, salt);
-        System.out.println(encrypt);
-        String decrypt = PasswordUtil.decrypt(encrypt, salt);
-        System.out.println(decrypt);
+        System.out.println("加密后密文 : " + encrypt);
     }
 
     @Test
     public void passwordTest1() throws Exception {
-        decryptTest("x9qCx3yP05yWfIE5wXbCsg==", "comment-admin");
+        decryptTest("2c2PDqFGORl0+CJ8j90vgQ==", "root");
     }
 
-    public void decryptTest(String encrypt, String salt) throws Exception {
-        System.out.println(encrypt);
+    private void decryptTest(String encrypt, String salt) throws Exception {
+        System.out.println("解密前密文 " + encrypt);
         String decrypt = PasswordUtil.decrypt(encrypt, salt);
-        System.out.println(decrypt);
+        System.out.println("解密后密文  " + decrypt);
     }
 
     @Test

@@ -2306,6 +2306,14 @@ nav a:first-child .meta-nav {
     text-align: center
 }
 
+.about-the {
+    text-align: center;
+}
+
+.about-motto {
+    text-align: center;
+}
+
 /* 首页关于我 end */
 
 /* 近期评论 */

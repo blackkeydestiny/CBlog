@@ -20,8 +20,6 @@
 package com.ccm.blog.util;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.security.MessageDigest;
 
@@ -43,7 +41,7 @@ public class Md5Util {
      *         需要加密的字符串
      * @param salt
      *         盐值
-     * @return
+     * @return 加密字符串
      */
     public static String MD5(String param, String salt) {
         return MD5(param + salt);
@@ -54,9 +52,9 @@ public class Md5Util {
      *
      * @param s
      *         字符串
-     * @return
+     * @return 加密字符串
      */
-    public static String MD5(String s) {
+     static String MD5(String s) {
         char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         try {
             byte[] btInput = s.getBytes();

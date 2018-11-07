@@ -50,8 +50,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/notice")
 public class RestNoticeController {
+//    @Autowired
+//    private SysNoticeService noticeService;
+
+    private final SysNoticeService noticeService;
     @Autowired
-    private SysNoticeService noticeService;
+    public RestNoticeController(SysNoticeService noticeService){
+        this.noticeService = noticeService;
+    }
 
     @RequiresPermissions("notices")
     @PostMapping("/list")

@@ -20,7 +20,6 @@
 package com.ccm.blog.core.websocket.server;
 
 import com.ccm.blog.core.websocket.util.WebSocketUtil;
-import com.ccm.blog.core.websocket.util.WebSocketUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

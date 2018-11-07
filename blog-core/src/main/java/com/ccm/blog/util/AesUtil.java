@@ -74,7 +74,7 @@ public class AesUtil {
      * @param encrypted
      *         已加密的密文
      * @return 返回解密后的数据
-     * @throws Exception
+     * @throws Exception exception
      */
      static String decrypt(String passwd, String encrypted) throws Exception {
         //实例化

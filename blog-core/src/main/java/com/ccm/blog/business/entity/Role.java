@@ -21,7 +21,6 @@ package com.ccm.blog.business.entity;
 
 import com.ccm.blog.persistence.beans.SysRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ccm.blog.persistence.beans.SysRole;
 
 import java.util.Date;
 

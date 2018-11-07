@@ -47,8 +47,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/template")
 public class RestTemplateController {
+//    @Autowired
+//    private SysTemplateService templateService;
+
+    private final SysTemplateService templateService;
     @Autowired
-    private SysTemplateService templateService;
+    public RestTemplateController(SysTemplateService templateService){
+        this.templateService = templateService;
+    }
 
     @RequiresPermissions("templates")
     @PostMapping("/list")

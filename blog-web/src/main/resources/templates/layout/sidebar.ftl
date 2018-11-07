@@ -17,6 +17,7 @@
                             <div class="about-img"><a href="${config.staticWebSite}/img/wxgzh_400px.png" class="showImage" title="微信公众号"><img src="${config.staticWebSite}/img/wxgzh_400px.png" alt="微信公众号"></a></div>
                             <div class="about-name">${config.siteName}</div>
                             <#--<div class="about-the">${config.siteDesc?if_exists}</div>-->
+                            <div class="about-motto">${config.siteMotto?if_exists}</div>
                         </div>
                         <div class="clear"></div>
                         <!-- 方案一：图标展示 -->

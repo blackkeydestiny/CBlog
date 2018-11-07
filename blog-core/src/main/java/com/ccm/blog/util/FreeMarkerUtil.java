@@ -115,7 +115,7 @@ public class FreeMarkerUtil {
         return null;
     }
 
-    protected static String filterXmlString(String str) {
+    private static String filterXmlString(String str) {
         str = str.replaceAll(LT, LT_CHAR);
         str = str.replaceAll(GT, GT_CHAR);
         str = str.replaceAll(AMP, AMP_CHAR);

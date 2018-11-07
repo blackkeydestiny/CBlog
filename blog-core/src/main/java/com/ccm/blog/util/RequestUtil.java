@@ -20,7 +20,6 @@
 package com.ccm.blog.util;
 
 import com.ccm.blog.framework.holder.RequestHolder;
-import com.ccm.blog.framework.holder.RequestHolder;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;

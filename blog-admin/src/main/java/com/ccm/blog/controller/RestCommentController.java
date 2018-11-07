@@ -52,10 +52,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/comment")
 public class RestCommentController {
+//    @Autowired
+//    private BizCommentService commentService;
+//    @Autowired
+//    private MailService mailService;
+
+    private final BizCommentService commentService;
+    private final MailService mailService;
     @Autowired
-    private BizCommentService commentService;
-    @Autowired
-    private MailService mailService;
+    public RestCommentController(BizCommentService commentService, MailService mailService){
+        this.commentService = commentService;
+        this.mailService = mailService;
+    }
 
     @RequiresPermissions("comments")
     @PostMapping("/list")

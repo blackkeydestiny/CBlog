@@ -63,14 +63,26 @@ import java.util.Map;
 @RequestMapping("/api")
 public class RestApiController {
 
+//    @Autowired
+//    private SysLinkService sysLinkService;
+//    @Autowired
+//    private BizCommentService commentService;
+//    @Autowired
+//    private BizArticleService articleService;
+//    @Autowired
+//    private SysNoticeService noticeService;
+
+    private final SysLinkService sysLinkService;
+    private final BizCommentService commentService;
+    private final BizArticleService articleService;
+    private final SysNoticeService noticeService;
     @Autowired
-    private SysLinkService sysLinkService;
-    @Autowired
-    private BizCommentService commentService;
-    @Autowired
-    private BizArticleService articleService;
-    @Autowired
-    private SysNoticeService noticeService;
+    public RestApiController(SysLinkService sysLinkService, BizCommentService commentService, BizArticleService articleService, SysNoticeService noticeService){
+        this.sysLinkService = sysLinkService;
+        this.commentService = commentService;
+        this.articleService = articleService;
+        this.noticeService = noticeService;
+    }
 
     /**
      * 申请友情链接

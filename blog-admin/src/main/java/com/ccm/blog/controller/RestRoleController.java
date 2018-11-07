@@ -52,12 +52,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/roles")
 public class RestRoleController {
+//    @Autowired
+//    private SysRoleService roleService;
+//    @Autowired
+//    private SysRoleResourcesService roleResourcesService;
+//    @Autowired
+//    private ShiroService shiroService;
+
+    private final SysRoleService roleService;
+    private final SysRoleResourcesService roleResourcesService;
+    private final ShiroService shiroService;
     @Autowired
-    private SysRoleService roleService;
-    @Autowired
-    private SysRoleResourcesService roleResourcesService;
-    @Autowired
-    private ShiroService shiroService;
+    public RestRoleController(SysRoleService roleService, SysRoleResourcesService roleResourcesService, ShiroService shiroService){
+        this.roleService = roleService;
+        this.roleResourcesService = roleResourcesService;
+        this.shiroService = shiroService;
+    }
 
     @RequiresPermissions("roles")
     @PostMapping("/list")

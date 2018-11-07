@@ -22,7 +22,6 @@ package com.ccm.blog.business.entity;
 import com.ccm.blog.persistence.beans.SysNotice;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ccm.blog.business.enums.NoticeStatusEnum;
-import com.ccm.blog.persistence.beans.SysNotice;
 
 import java.util.Date;
 

@@ -20,7 +20,6 @@
 package com.ccm.blog.util;
 
 import com.ccm.blog.business.consts.ApiUrlConst;
-import com.ccm.blog.business.consts.ApiUrlConst;
 
 import java.text.MessageFormat;
 

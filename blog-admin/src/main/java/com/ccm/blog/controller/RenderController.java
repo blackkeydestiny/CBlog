@@ -56,10 +56,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RenderController {
 
+//    @Autowired
+//    private BizArticleService articleService;
+//    @Autowired
+//    private CcmWebsocketServer websocketServer;
+
+    private final BizArticleService articleService;
+    private final CcmWebsocketServer websocketServer;
     @Autowired
-    private BizArticleService articleService;
-    @Autowired
-    private CcmWebsocketServer websocketServer;
+    public RenderController(BizArticleService articleService, CcmWebsocketServer websocketServer){
+        this.articleService = articleService;
+        this.websocketServer = websocketServer;
+    }
+
 
     @RequiresAuthentication
     @BussinessLog("进入首页")

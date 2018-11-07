@@ -11,6 +11,7 @@
         <result property="siteUrl" jdbcType="VARCHAR" column="site_url"/>
         <result property="siteName" jdbcType="VARCHAR" column="site_name"/>
         <result property="siteDesc" jdbcType="VARCHAR" column="site_desc"/>
+		<result property="siteMotto" jdbcType="VARCHAR" column="site_motto"/>
         <result property="siteFavicon" jdbcType="VARCHAR" column="site_favicon"/>
         <result property="staticWebSite" jdbcType="VARCHAR" column="static_web_site"/>
         <result property="authorName" jdbcType="VARCHAR" column="author_name"/>

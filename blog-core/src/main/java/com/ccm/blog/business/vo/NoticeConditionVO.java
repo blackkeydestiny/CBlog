@@ -20,7 +20,6 @@
 package com.ccm.blog.business.vo;
 
 import com.ccm.blog.framework.object.BaseConditionVO;
-import com.ccm.blog.framework.object.BaseConditionVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

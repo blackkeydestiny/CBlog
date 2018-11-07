@@ -60,8 +60,10 @@ public class ErrorPagesController implements ErrorController {
 
     private ErrorAttributes errorAttributes;
 
-    @Autowired
-    private ServerProperties serverProperties;
+//    @Autowired
+//    private ServerProperties serverProperties;
+
+    private final ServerProperties serverProperties;
 
     /**
      * 初始化ExceptionController
@@ -69,9 +71,10 @@ public class ErrorPagesController implements ErrorController {
      * @param errorAttributes
      */
     @Autowired
-    public ErrorPagesController(ErrorAttributes errorAttributes) {
+    public ErrorPagesController(ErrorAttributes errorAttributes, ServerProperties serverProperties) {
         Assert.notNull(errorAttributes, "ErrorAttributes must not be null");
         this.errorAttributes = errorAttributes;
+        this.serverProperties = serverProperties;
     }
 
     @RequestMapping("/404")

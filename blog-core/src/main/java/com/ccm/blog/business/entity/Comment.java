@@ -25,8 +25,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ccm.blog.business.enums.CommentStatusEnum;
-import com.ccm.blog.persistence.beans.BizArticle;
-import com.ccm.blog.persistence.beans.BizComment;
 import com.ccm.blog.util.HtmlUtil;
 import org.springframework.util.StringUtils;
 

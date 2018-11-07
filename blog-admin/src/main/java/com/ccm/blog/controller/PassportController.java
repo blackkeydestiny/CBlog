@@ -57,10 +57,19 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping(value = "/passport")
 public class PassportController {
 
+//    @Autowired
+//    private AppProperties config;
+//    @Autowired
+//    private SysUserService userService;
+
+    private final AppProperties config;
+    private final SysUserService userService;
     @Autowired
-    private AppProperties config;
-    @Autowired
-    private SysUserService userService;
+    public PassportController(AppProperties config, SysUserService userService){
+        this.config = config;
+        this.userService = userService;
+    }
+
 
     @BussinessLog("进入登录页面")
     @GetMapping("/login")

@@ -46,16 +46,30 @@ import java.util.Map;
 @Component
 public class CustomTagDirective implements TemplateDirectiveModel {
     private static final String METHOD_KEY = "method";
+//    @Autowired
+//    private BizTypeService bizTypeService;
+//    @Autowired
+//    private BizCommentService commentService;
+//    @Autowired
+//    private BizTagsService bizTagsService;
+//    @Autowired
+//    private SysResourcesService resourcesService;
+//    @Autowired
+//    private SysConfigService configService;
+
+    private final BizTypeService bizTypeService;
+    private final BizCommentService commentService;
+    private final BizTagsService bizTagsService;
+    private final SysResourcesService resourcesService;
+    private final SysConfigService configService;
     @Autowired
-    private BizTypeService bizTypeService;
-    @Autowired
-    private BizCommentService commentService;
-    @Autowired
-    private BizTagsService bizTagsService;
-    @Autowired
-    private SysResourcesService resourcesService;
-    @Autowired
-    private SysConfigService configService;
+    public CustomTagDirective(BizTypeService bizTypeService, BizCommentService commentService, BizTagsService bizTagsService, SysResourcesService resourcesService, SysConfigService configService){
+        this.bizTypeService = bizTypeService;
+        this.commentService = commentService;
+        this.bizTagsService = bizTagsService;
+        this.resourcesService = resourcesService;
+        this.configService = configService;
+    }
 
     @Override
     public void execute(Environment environment, Map map, TemplateModel[] templateModels, TemplateDirectiveBody templateDirectiveBody) throws TemplateException, IOException {

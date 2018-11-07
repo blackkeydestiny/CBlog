@@ -21,7 +21,6 @@ package com.ccm.blog.business.entity;
 
 import com.ccm.blog.persistence.beans.BizArticleArchives;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ccm.blog.persistence.beans.BizArticleArchives;
 
 import java.util.List;
 

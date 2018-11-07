@@ -47,8 +47,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/tag")
 public class RestTagController {
+//    @Autowired
+//    private BizTagsService tagsService;
+
+    private final BizTagsService tagsService;
     @Autowired
-    private BizTagsService tagsService;
+    public RestTagController(BizTagsService tagsService){
+        this.tagsService = tagsService;
+    }
 
     @RequiresPermissions("tags")
     @PostMapping("/list")

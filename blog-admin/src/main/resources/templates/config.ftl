@@ -246,6 +246,13 @@
                                         </div>
                                     </div>
                                     <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="github">名言警句</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" class="form-control col-md-7 col-xs-12" name="siteMotto" id="siteMotto"
+                                                   placeholder="例如：好问则裕，自用则小"/>
+                                        </div>
+                                    </div>
+                                    <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comment"></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <button type="button" class="btn btn-primary saveBtn"><i class="fa fa-save"> 保存</i></button>

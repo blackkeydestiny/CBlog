@@ -23,7 +23,6 @@ import com.ccm.blog.persistence.beans.SysUpdateRecorde;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ccm.blog.business.consts.DateConst;
-import com.ccm.blog.persistence.beans.SysUpdateRecorde;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;

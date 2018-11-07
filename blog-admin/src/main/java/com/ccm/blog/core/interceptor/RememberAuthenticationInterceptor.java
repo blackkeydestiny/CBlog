@@ -46,8 +46,14 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class RememberAuthenticationInterceptor implements HandlerInterceptor {
 
+//    @Autowired
+//    private SysUserService userService;
+
+    private final SysUserService userService;
     @Autowired
-    private SysUserService userService;
+    public RememberAuthenticationInterceptor(SysUserService userService){
+        this.userService = userService;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

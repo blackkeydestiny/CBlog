@@ -50,10 +50,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/link")
 public class RestLinkController {
+//    @Autowired
+//    private SysLinkService linkService;
+//    @Autowired
+//    private MailService mailService;
+
+    private final SysLinkService linkService;
+    private final MailService mailService;
     @Autowired
-    private SysLinkService linkService;
-    @Autowired
-    private MailService mailService;
+    public RestLinkController(SysLinkService linkService, MailService mailService){
+        this.linkService = linkService;
+        this.mailService = mailService;
+    }
 
     @RequiresPermissions("links")
     @PostMapping("/list")

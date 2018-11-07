@@ -32,7 +32,7 @@ import org.springframework.validation.support.BindingAwareModelMap;
  * @date 2018/5/25 10:23
  * @since 1.0
  */
-public class CacheKeyUtil {
+class CacheKeyUtil {
 
     /**
      * 获取方法参数组成的key
@@ -40,7 +40,7 @@ public class CacheKeyUtil {
      * @param params
      *         参数数组
      */
-    public static String getMethodParamsKey(Object... params) {
+     static String getMethodParamsKey(Object... params) {
         if (StringUtils.isEmpty(params)) {
             return "";
         }

@@ -48,8 +48,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/type")
 public class RestTypeController {
+//    @Autowired
+//    private BizTypeService typeService;
+
+    private final BizTypeService typeService;
     @Autowired
-    private BizTypeService typeService;
+    public RestTypeController(BizTypeService typeService){
+        this.typeService = typeService;
+    }
 
     @RequiresPermissions("types")
     @PostMapping("/list")

@@ -56,10 +56,18 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/article")
 public class RestArticleController {
+//    @Autowired
+//    private BizArticleService articleService;
+//    @Autowired
+//    private SysConfigService configService;
+
+    private final BizArticleService articleService;
+    private final SysConfigService configService;
     @Autowired
-    private BizArticleService articleService;
-    @Autowired
-    private SysConfigService configService;
+    public RestArticleController(BizArticleService articleService, SysConfigService configService){
+        this.articleService = articleService;
+        this.configService = configService;
+    }
 
     @RequiresPermissions("articles")
     @PostMapping("/list")

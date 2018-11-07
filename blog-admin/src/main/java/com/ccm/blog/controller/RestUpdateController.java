@@ -47,8 +47,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/update")
 public class RestUpdateController {
+//    @Autowired
+//    private SysUpdateRecordeService updateRecordeService;
+
+    private final SysUpdateRecordeService updateRecordeService;
     @Autowired
-    private SysUpdateRecordeService updateRecordeService;
+    public RestUpdateController(SysUpdateRecordeService updateRecordeService){
+        this.updateRecordeService = updateRecordeService;
+    }
 
     @RequiresPermissions("updateLogs")
     @PostMapping("/list")

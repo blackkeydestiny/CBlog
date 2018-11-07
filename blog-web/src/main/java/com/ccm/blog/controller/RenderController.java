@@ -56,14 +56,26 @@ public class RenderController {
     private static final int SIDEBAR_ARTICLE_SIZE = 8;
     private static final String INDEX_URL = "index";
 
+//    @Autowired
+//    private BizArticleService bizArticleService;
+//    @Autowired
+//    private BizArticleArchivesService bizArticleArchivesService;
+//    @Autowired
+//    private SysLinkService sysLinkService;
+//    @Autowired
+//    private SysUpdateRecordeService updateRecordeService;
+
+    private final BizArticleService bizArticleService;
+    private final BizArticleArchivesService bizArticleArchivesService;
+    private final SysLinkService sysLinkService;
+    private final SysUpdateRecordeService updateRecordeService;
     @Autowired
-    private BizArticleService bizArticleService;
-    @Autowired
-    private BizArticleArchivesService bizArticleArchivesService;
-    @Autowired
-    private SysLinkService sysLinkService;
-    @Autowired
-    private SysUpdateRecordeService updateRecordeService;
+    public RenderController(BizArticleService bizArticleService, BizArticleArchivesService bizArticleArchivesService, SysLinkService sysLinkService, SysUpdateRecordeService updateRecordeService){
+        this.bizArticleService = bizArticleService;
+        this.bizArticleArchivesService = bizArticleArchivesService;
+        this.sysLinkService = sysLinkService;
+        this.updateRecordeService = updateRecordeService;
+    }
 
     /**
      * 加载首页的数据

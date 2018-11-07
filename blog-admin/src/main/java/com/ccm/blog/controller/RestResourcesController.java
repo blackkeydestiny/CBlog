@@ -51,10 +51,18 @@ import java.util.List;
 @RequestMapping("/resources")
 public class RestResourcesController {
 
+//    @Autowired
+//    private SysResourcesService resourcesService;
+//    @Autowired
+//    private ShiroService shiroService;
+
+    private final SysResourcesService resourcesService;
+    private final ShiroService shiroService;
     @Autowired
-    private SysResourcesService resourcesService;
-    @Autowired
-    private ShiroService shiroService;
+    public RestResourcesController(SysResourcesService resourcesService, ShiroService shiroService){
+        this.resourcesService = resourcesService;
+        this.shiroService = shiroService;
+    }
 
     @RequiresPermissions("resources")
     @PostMapping("/list")

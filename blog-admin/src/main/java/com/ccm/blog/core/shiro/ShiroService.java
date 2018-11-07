@@ -57,10 +57,18 @@ import java.util.Map;
 @Service
 public class ShiroService {
 
+//    @Autowired
+//    private SysResourcesService resourcesService;
+//    @Autowired
+//    private SysUserService userService;
+
+    private final SysResourcesService resourcesService;
+    private final SysUserService userService;
     @Autowired
-    private SysResourcesService resourcesService;
-    @Autowired
-    private SysUserService userService;
+    public ShiroService(SysResourcesService resourcesService, SysUserService userService){
+        this.resourcesService = resourcesService;
+        this.userService = userService;
+    }
 
     /**
      * 初始化权限

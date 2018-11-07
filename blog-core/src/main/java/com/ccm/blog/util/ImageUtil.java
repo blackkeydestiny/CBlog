@@ -88,7 +88,7 @@ public class ImageUtil {
      * @param inputStream
      * @throws IOException
      */
-    public static ImageFileInfo getInfo(InputStream inputStream) {
+    private static ImageFileInfo getInfo(InputStream inputStream) {
         try (BufferedInputStream in = new BufferedInputStream(inputStream)) {
             //字节流转图片对象
             Image bi = ImageIO.read(in);

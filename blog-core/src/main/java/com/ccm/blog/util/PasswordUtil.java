@@ -20,7 +20,6 @@
 package com.ccm.blog.util;
 
 import com.ccm.blog.business.consts.CommonConst;
-import com.ccm.blog.business.consts.CommonConst;
 
 /**
  * @author: chuming.chen
@@ -34,8 +33,8 @@ public class PasswordUtil {
      *         未加密的密码
      * @param salt
      *         盐值，默认使用用户名就可
-     * @return
-     * @throws Exception
+     * @return 加密
+     * @throws Exception exception
      */
     public static String encrypt(String password, String salt) throws Exception {
         return AesUtil.encrypt(Md5Util.MD5(salt + CommonConst.CCM_SECURITY_KEY), password);
@@ -47,8 +46,8 @@ public class PasswordUtil {
      *         加密后的密码
      * @param salt
      *         盐值，默认使用用户名就可
-     * @return
-     * @throws Exception
+     * @return 解密
+     * @throws Exception exception
      */
     public static String decrypt(String encryptPassword, String salt) throws Exception {
         return AesUtil.decrypt(Md5Util.MD5(salt + CommonConst.CCM_SECURITY_KEY), encryptPassword);

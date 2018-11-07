@@ -25,9 +25,6 @@ import com.ccm.blog.persistence.beans.BizType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ccm.blog.business.enums.ArticleStatusEnum;
-import com.ccm.blog.persistence.beans.BizArticle;
-import com.ccm.blog.persistence.beans.BizTags;
-import com.ccm.blog.persistence.beans.BizType;
 
 import java.util.Date;
 import java.util.List;

@@ -41,16 +41,30 @@ import java.util.Map;
  */
 @RestController
 public class RestWebSiteController {
+//    @Autowired
+//    private BizArticleService articleService;
+//    @Autowired
+//    private BizTypeService typeService;
+//    @Autowired
+//    private BizTagsService tagsService;
+//    @Autowired
+//    private SysTemplateService templateService;
+//    @Autowired
+//    private SysConfigService configService;
+
+    private final BizArticleService articleService;
+    private final BizTypeService typeService;
+    private final BizTagsService tagsService;
+    private final SysTemplateService templateService;
+    private final SysConfigService configService;
     @Autowired
-    private BizArticleService articleService;
-    @Autowired
-    private BizTypeService typeService;
-    @Autowired
-    private BizTagsService tagsService;
-    @Autowired
-    private SysTemplateService templateService;
-    @Autowired
-    private SysConfigService configService;
+    public RestWebSiteController(BizArticleService articleService, BizTypeService typeService, BizTagsService tagsService, SysTemplateService templateService, SysConfigService configService){
+        this.articleService = articleService;
+        this.typeService = typeService;
+        this.tagsService = tagsService;
+        this.templateService = templateService;
+        this.configService = configService;
+    }
 
     @GetMapping(value = "/sitemap.xml", produces = {"application/xml"})
     public String sitemapXml() {

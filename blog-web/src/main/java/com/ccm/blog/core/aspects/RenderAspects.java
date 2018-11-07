@@ -25,10 +25,18 @@ import org.springframework.stereotype.Component;
 public class RenderAspects {
 
     private static volatile long configLastUpdateTime = 0L;
+//    @Autowired
+//    protected freemarker.template.Configuration configuration;
+//    @Autowired
+//    private SysConfigService configService;
+
+    private final freemarker.template.Configuration configuration;
+    private final SysConfigService configService;
     @Autowired
-    protected freemarker.template.Configuration configuration;
-    @Autowired
-    private SysConfigService configService;
+    public RenderAspects(freemarker.template.Configuration configuration, SysConfigService configService){
+        this.configuration = configuration;
+        this.configService = configService;
+    }
 
     @Pointcut("execution(* com.ccm.blog.controller.RenderController.*(..))")
     public void pointcut() {

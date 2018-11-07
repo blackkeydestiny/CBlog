@@ -45,8 +45,14 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/config")
 public class RestConfigController {
+//    @Autowired
+//    private SysConfigService sysConfigService;
+
+    private final SysConfigService sysConfigService;
     @Autowired
-    private SysConfigService sysConfigService;
+    public RestConfigController(SysConfigService sysConfigService){
+        this.sysConfigService = sysConfigService;
+    }
 
     @RequiresRoles("role:root")
     @PostMapping("/get")

@@ -20,7 +20,6 @@
 package com.ccm.blog.business.util;
 
 import com.ccm.blog.business.consts.HttpConsts;
-import com.ccm.blog.business.consts.HttpConsts;
 import com.ccm.blog.util.HtmlUtil;
 import com.ccm.blog.util.RestClientUtil;
 import lombok.extern.slf4j.Slf4j;

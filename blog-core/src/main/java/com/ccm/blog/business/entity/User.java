@@ -23,8 +23,6 @@ import com.ccm.blog.framework.object.AbstractBO;
 import com.ccm.blog.persistence.beans.SysUser;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ccm.blog.business.enums.*;
-import com.ccm.blog.framework.object.AbstractBO;
-import com.ccm.blog.persistence.beans.SysUser;
 import com.ccm.blog.util.PasswordUtil;
 import org.springframework.util.StringUtils;
 

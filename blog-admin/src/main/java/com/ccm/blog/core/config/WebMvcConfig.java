@@ -36,8 +36,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
+//    @Autowired
+//    private RememberAuthenticationInterceptor rememberAuthenticationInterceptor;
+
+    private final RememberAuthenticationInterceptor rememberAuthenticationInterceptor;
     @Autowired
-    private RememberAuthenticationInterceptor rememberAuthenticationInterceptor;
+    public WebMvcConfig(RememberAuthenticationInterceptor rememberAuthenticationInterceptor){
+        this.rememberAuthenticationInterceptor = rememberAuthenticationInterceptor;
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

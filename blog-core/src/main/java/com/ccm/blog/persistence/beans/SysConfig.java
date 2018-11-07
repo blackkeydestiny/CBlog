@@ -42,6 +42,7 @@ public class SysConfig extends AbstractDO {
     private String siteUrl;
     private String siteName;
     private String siteDesc;
+    private String siteMotto;
     private String siteFavicon;
 
     private String staticWebSite;

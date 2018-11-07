@@ -60,10 +60,18 @@ import java.util.Map;
 @Order(1)
 public class ShiroConfig {
 
+//    @Autowired
+//    private ShiroService shiroService;
+//    @Autowired
+//    private RedisProperties redisProperties;
+
+    private final ShiroService shiroService;
+    private final RedisProperties redisProperties;
     @Autowired
-    private ShiroService shiroService;
-    @Autowired
-    private RedisProperties redisProperties;
+    public ShiroConfig(ShiroService shiroService, RedisProperties redisProperties){
+        this.shiroService = shiroService;
+        this.redisProperties = redisProperties;
+    }
 
     @Bean(name = "lifecycleBeanPostProcessor")
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {

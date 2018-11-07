@@ -53,12 +53,22 @@ import java.util.Map;
 @RequestMapping("/api")
 public class RestApiController {
 
+//    @Autowired
+//    private BizArticleService articleService;
+//    @Autowired
+//    private SysConfigService configService;
+//    @Autowired
+//    private CcmWebsocketServer websocketServer;
+
+    private final BizArticleService articleService;
+    private final SysConfigService configService;
+    private final CcmWebsocketServer websocketServer;
     @Autowired
-    private BizArticleService articleService;
-    @Autowired
-    private SysConfigService configService;
-    @Autowired
-    private CcmWebsocketServer websocketServer;
+    public RestApiController(BizArticleService articleService, SysConfigService configService, CcmWebsocketServer websocketServer){
+        this.articleService = articleService;
+        this.configService = configService;
+        this.websocketServer = websocketServer;
+    }
 
     /**
      * 上传文件到七牛云

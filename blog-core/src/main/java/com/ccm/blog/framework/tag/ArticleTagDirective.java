@@ -49,8 +49,14 @@ import java.util.Map;
 public class ArticleTagDirective implements TemplateDirectiveModel {
     private static final String METHOD_KEY = "method";
 
+//    @Autowired
+//    private BizArticleService articleService;
+
+    private final BizArticleService articleService;
     @Autowired
-    private BizArticleService articleService;
+    public ArticleTagDirective(BizArticleService articleService){
+        this.articleService = articleService;
+    }
 
     @Override
     public void execute(Environment environment, Map map, TemplateModel[] templateModels, TemplateDirectiveBody templateDirectiveBody) throws TemplateException, IOException {

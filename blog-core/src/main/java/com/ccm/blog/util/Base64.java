@@ -1,5 +1,5 @@
 /**
- * Copyright [2016-2017] [yadong.zhang]
+ * Copyright [2016-2017] [chuming.chen]
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,9 @@ package com.ccm.blog.util;
 //
 import org.apache.shiro.codec.CodecSupport;
 
+/**
+ * @deprecated 暂时没有用到此类
+ */
 public class Base64 {
     private static final int CHUNK_SIZE = 76;
     private static final byte[] CHUNK_SEPARATOR = "\r\n".getBytes();
