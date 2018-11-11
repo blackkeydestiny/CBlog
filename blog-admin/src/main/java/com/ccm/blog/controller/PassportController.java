@@ -1,4 +1,4 @@
-/**
+/*
  * MIT License
  * Copyright (c) 2018 chuming.chen
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -17,6 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.ccm.blog.controller;
 
 import com.ccm.blog.business.annotation.BussinessLog;
@@ -70,7 +71,6 @@ public class PassportController {
         this.userService = userService;
     }
 
-
     @BussinessLog("进入登录页面")
     @GetMapping("/login")
     public ModelAndView login(Model model) {
@@ -81,9 +81,9 @@ public class PassportController {
     /**
      * 登录
      *
-     * @param username
-     * @param password
-     * @return
+     * @param username 用户名
+     * @param password 密码
+     * @return ResponseVO
      */
     @PostMapping("/signin")
     @ResponseBody
@@ -104,7 +104,8 @@ public class PassportController {
             currentUser.login(token);
             return ResultUtil.success("登录成功！");
         } catch (Exception e) {
-            log.error("登录失败，用户名[{}]", username, e);
+           //log.error("登录失败，用户名[{}]", username, e);
+            log.error("登录失败，用户名[{}] " + e.getMessage(), username);
             token.clear();
             return ResultUtil.error(e.getMessage());
         }
@@ -113,7 +114,7 @@ public class PassportController {
     /**
      * 修改密码
      *
-     * @return
+     * @return ResponseVO
      */
     @PostMapping("/updatePwd")
     @ResponseBody
@@ -129,8 +130,8 @@ public class PassportController {
     /**
      * 使用权限管理工具进行用户的退出，跳出登录，给出提示信息
      *
-     * @param redirectAttributes
-     * @return
+     * @param redirectAttributes redirectAttributes
+     * @return ModelAndView
      */
     @GetMapping("/logout")
     public ModelAndView logout(RedirectAttributes redirectAttributes) {

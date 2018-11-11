@@ -1,4 +1,4 @@
-/**
+/*
  * MIT License
  * Copyright (c) 2018 chuming.chen
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,6 @@ import org.apache.commons.codec.Charsets;
 import org.springframework.util.CollectionUtils;
 
 import javax.websocket.Session;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Set;
@@ -62,10 +61,10 @@ public class WebSocketUtil {
     }
 
     /**
-     * 发送在线用户的消息
+     * 发送在线用户的消息(在线人数)
      *
-     * @param msg
-     * @param sessionSet
+     * @param msg message
+     * @param sessionSet session
      */
     public static void sendOnlineMsg(String msg, Set<Session> sessionSet) {
         broadcast(generateMsg(ONLINE_MSG_KEY, msg), sessionSet);
@@ -74,8 +73,8 @@ public class WebSocketUtil {
     /**
      * 发送通知的消息
      *
-     * @param msg
-     * @param sessionSet
+     * @param msg message
+     * @param sessionSet session
      */
     public static void sendNotificationMsg(String msg, Set<Session> sessionSet) throws UnsupportedEncodingException {
         // 为了防止消息中存在特殊字符（比如换行符）等造成前台解析错误，此处编码一次。前台对应的需要解码

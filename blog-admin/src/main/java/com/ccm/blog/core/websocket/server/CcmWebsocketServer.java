@@ -1,4 +1,4 @@
-/**
+/*
  * MIT License
  * Copyright (c) 2018 chuming.chen
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -17,6 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.ccm.blog.core.websocket.server;
 
 import com.ccm.blog.core.websocket.util.WebSocketUtil;
@@ -48,24 +49,23 @@ public class CcmWebsocketServer {
      */
     private static CopyOnWriteArraySet<Session> webSocketSet = new CopyOnWriteArraySet<>();
     /**
-     * 初始在线人数
+     * 初始在线人数: 0
      */
     private static AtomicInteger onlineCount = new AtomicInteger(0);
 
     /**
-     * 连接建立成功调用的方法
+     * 连接建立成功调用的方法: 在线人数加一
      */
     @OnOpen
     public void onOpen(Session session) {
         webSocketSet.add(session);
         int count = onlineCount.incrementAndGet();
         log.info("有链接加入，当前在线人数为: {}", count);
-
         WebSocketUtil.sendOnlineMsg(Integer.toString(count), webSocketSet);
     }
 
     /**
-     * 连接关闭调用的方法
+     * 连接关闭调用的方法 ： 在线人数减一
      */
     @OnClose
     public void onClose() {
@@ -86,7 +86,7 @@ public class CcmWebsocketServer {
     }
 
     /**
-     * 获取在线用户数量
+     * 获取在线用户数量(获取在线的总人数)
      *
      * @return 在线用户数量
      */

@@ -1,4 +1,4 @@
-/**
+/*
  * MIT License
  *
  * Copyright (c) 2018 chuming.chen
@@ -61,12 +61,13 @@ function initNavbar() {
 
 function initArticeMenu() {
     $(function () {
-        if ($('.blog-info-body') && $('.blog-info-body')[0]) {
+        var blogInfoBody = $('.blog-info-body');
+        if (blogInfoBody && blogInfoBody[0]) {
             // console.log("生成文章目录");
             var padding = [0, 10, 20, 30, 40];
             var liDom, aDom, spanDom;
             var dNum = 0;
-            $('.blog-info-body').find('h2,h3').each(function (index, item) {
+            blogInfoBody.find('h2,h3').each(function (index, item) {
                 var $this = $(this);
                 $this.before($('<span id="menu_'+index+'" class="menu-point"></span>'));
                 $this.addClass("menu-title");
@@ -80,10 +81,10 @@ function initArticeMenu() {
                 dNum++;
             });
             if (dNum > 0) {
-                $("#article-menu").show();
-                $('.article-module').removeClass('hide');
-                var sc = $(document);//得到document文档对象。
                 var am = $(".article-module");// 文章目录对象
+                $("#article-menu").show();
+                am.removeClass('hide');
+                var sc = $(document);//得到document文档对象。
                 var win = $(window); //得到窗口对象
                 win.scroll(function () {
                     bindMenuScroll();
@@ -117,7 +118,7 @@ function initScrollMenu() {
     var mainmenu = $("#mainmenu"); //得到导航对象
     var win = $(window); //得到窗口对象
     var sc = $(document);//得到document文档对象。
-    var am = $(".article-module");// 文章目录对象
+    //var am = $(".article-module");// 文章目录对象
     bindScroll();
     win.scroll(function () {
         bindScroll();
@@ -156,8 +157,9 @@ var PaymentUtils = window.payment || {
     },
     change: function (index) {
         var config = this.config[index];
-        $("#qrcode-container").empty();
-        $('<img  src="' + config.url + '" style="width: 250px;height: auto;" alt="'+config.desc+'">').appendTo($("#qrcode-container"));
+        var qrcodeContainer =  $("#qrcode-container");
+        qrcodeContainer.empty();
+        $('<img  src="' + config.url + '" style="width: 250px;height: auto;" alt="'+config.desc+'">').appendTo(qrcodeContainer);
     }
 
 };
@@ -249,7 +251,7 @@ $(function () {
     if($.websocket) {
         var sitePath = appConfig.cmsPath;
         var scheme = ["http://", "https://"];
-        var host;
+        var host = null;
         $.each(scheme, function (i, v) {
            if(sitePath.indexOf(v) !== -1) {
                host = sitePath.replaceAll(v, "");
