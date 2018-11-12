@@ -181,11 +181,12 @@
                             <li class="line-li">
                                 <div class="line-container">
                                     <div class="line-left">
-                                        <#if item.coverImage150?exists>
+                                        <#if item.coverImage150?exists && (item.coverImage150?length > 7)>
                                             <#--<img class="lazy-img" data-original="${config.qiuniuBasePath}${item.coverImage}" width="50" height="50" rel="external nofollow"/>-->
                                             <img class="lazy-img" data-original="${item.coverImage150}" width="50" height="50" rel="external nofollow"/>
                                         <#else>
-                                            <img class="lazy-img" data-original="${config.staticWebSite}/img/favicon.ico" width="50" height="50" rel="external nofollow"/>
+                                            <img class="img-responsive lazy-img" data-original="${config.staticWebSite}/img/default_article_cover.jpg" width="50" height="50" rel="external nofollow"/>
+                                            <#--<img class="lazy-img" data-original="https://gitee.com/blackkeydestiny/blogAssets/raw/master/avators/default_article_cover.jpg" width="50" height="50" rel="external nofollow"/>-->
                                         </#if>
                                     </div>
                                     <div class="line-right">

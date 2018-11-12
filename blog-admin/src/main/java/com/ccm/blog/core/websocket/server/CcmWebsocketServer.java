@@ -24,10 +24,7 @@ import com.ccm.blog.core.websocket.util.WebSocketUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.websocket.OnClose;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -61,7 +58,11 @@ public class CcmWebsocketServer {
         webSocketSet.add(session);
         int count = onlineCount.incrementAndGet();
         log.info("有链接加入，当前在线人数为: {}", count);
-        WebSocketUtil.sendOnlineMsg(Integer.toString(count), webSocketSet);
+        try {
+            WebSocketUtil.sendOnlineMsg(Integer.toString(count), webSocketSet);
+        }catch (Exception e){
+            log.error("Test EOFException in onOpen");
+        }
     }
 
     /**
@@ -71,7 +72,11 @@ public class CcmWebsocketServer {
     public void onClose() {
         int count = onlineCount.decrementAndGet();
         log.info("有链接关闭,当前在线人数为: {}", count);
-        WebSocketUtil.sendOnlineMsg(Integer.toString(count), webSocketSet);
+        try {
+            WebSocketUtil.sendOnlineMsg(Integer.toString(count), webSocketSet);
+        }catch (Exception e){
+            log.error("Test EOFException in onClose");
+        }
     }
 
     /**
@@ -83,6 +88,18 @@ public class CcmWebsocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         log.info("{}来自客户端的消息:{}", session.getId(), message);
+    }
+
+    /**
+     * 当调用@OnClose时，客户端关闭了socket连接，server端会抛出EOFException。这里的处理是忽略它，并打印日志
+     * https://stackoverflow.com/questions/33379219/websocket-java-nio-channels-closedchannelexception
+     *
+     * @param session session
+     * @param thr thr
+     */
+    @OnError
+    public void onError(Session session, Throwable thr) {
+        log.error("{}来自客户端close了socket连接:{}", session.getId(), thr);
     }
 
     /**

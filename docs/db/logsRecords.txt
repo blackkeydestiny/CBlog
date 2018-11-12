@@ -164,7 +164,9 @@ java.io.EOFException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-解决办法：WebsocketServer一直出现NULL异常
+解决办法：WebsocketServer一直出现NULL异常；此处采用OnError
+        * 当调用@OnClose时，客户端关闭了socket连接，server端会抛出EOFException。这里的处理是忽略它，并打印日志
+        * https://stackoverflow.com/questions/33379219/websocket-java-nio-channels-closedchannelexception
 
 
 5、
@@ -271,4 +273,10 @@ redis.clients.jedis.exceptions.JedisDataException: MISCONF Redis is configured t
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 	
-解决办法：WebsocketServer一直出现NULL异常
+解决办法：redis的问题，严重；解决在linux系统中启动redis时的几个警告的问题，然后更改redis.conf的配置：更改了redis的dbfilename temp.rdb 和 dir /var/tmp/redisdb/
+	Centos启用redis是出现一个警告：
+	WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. 
+	This will create latency and memory usage issues with Redis. 
+	To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, 
+	and add it to your /etc/rc.local in order to retain the setting after a reboot. 
+	Redis must be restarted after THP is disabled.

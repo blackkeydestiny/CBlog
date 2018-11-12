@@ -1,4 +1,4 @@
-/**
+/*
  * MIT License
  * Copyright (c) 2018 chuming.chen
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -17,6 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.ccm.blog.business.service.impl;
 
 import com.alibaba.fastjson.JSON;
