@@ -69,7 +69,8 @@ public class CcmWebsocketServer {
      * 连接关闭调用的方法 ： 在线人数减一
      */
     @OnClose
-    public void onClose() {
+    public void onClose(Session session) {
+        webSocketSet.remove(session);   // 删除session
         int count = onlineCount.decrementAndGet();
         log.info("有链接关闭,当前在线人数为: {}", count);
         try {
@@ -91,15 +92,22 @@ public class CcmWebsocketServer {
     }
 
     /**
-     * 当调用@OnClose时，客户端关闭了socket连接，server端会抛出EOFException。这里的处理是忽略它，并打印日志
+     * 客户端自动关闭了socket连接，server端会抛出EOFException。// 1、在@OnClose和@OnError中 删除session,手动关闭websocket连接；
+     * 2、同时可以nginx.conf的
+     *           proxy_connect_timeout    6000;
+     * 			 proxy_read_timeout       6000;
+     * 			 proxy_send_timeout       6000;
      * https://stackoverflow.com/questions/33379219/websocket-java-nio-channels-closedchannelexception
+     * https://blog.csdn.net/shangmingtao/article/details/77447868
+     * https://stackoverflow.com/questions/46888759/spring-websocket-eofexception
      *
      * @param session session
      * @param thr thr
      */
     @OnError
     public void onError(Session session, Throwable thr) {
-        log.error("{}来自客户端close了socket连接:{}", session.getId(), thr);
+        log.error("[WebSocketServer] Connection Exception {} and {}", session.getId(), thr.getMessage());
+        webSocketSet.remove(session);
     }
 
     /**
