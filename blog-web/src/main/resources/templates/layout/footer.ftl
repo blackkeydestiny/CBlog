@@ -74,7 +74,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">山无棱江水为竭，冬雷震震夏雨雪，才敢请君舍</h4>
+                <h4 class="modal-title" align="center">枕风宿雪多年，我与虎谋早餐</h4>
             </div>
             <div class="modal-body">
                 <div class="rewardType" align="center">

@@ -106,7 +106,7 @@ public class CcmWebsocketServer {
      */
     @OnError
     public void onError(Session session, Throwable thr) {
-        log.error("[WebSocketServer] Connection Exception {} and {}", session.getId(), thr.getMessage());
+        log.info("[WebSocketServer] Connection Exception {} and {}", session.getId(), thr.getMessage());
         webSocketSet.remove(session);
     }
 
